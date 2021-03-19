@@ -8,7 +8,7 @@ HTML - Setting the webiste out and creating the components that will be used
 CSS - Styling the HTML to create a professional evniroment 
 JavaScript - Front end validation on any search terms 
 PHP - All actions in back end such as sanatizing data, encrypt/decrypt data, sorting data and running queries
-MySQl - Used to access the database and retreve data to be used on the site
+MySQl - Used to access the database and retreve data to be used on the site.
 
 ## Setup
 To be able to run the website you must install Mamp or Xamp to run a virtual server. You must also import the data set into the virtual server. 
