@@ -2,7 +2,7 @@
 
 The project aims to create a website that uses a movie database and provides services to allow a user to be able to log in and search movies by various different contriants. 
 
-## Techonolgies 
+## Technologies 
 This will be done using HTML, CSS, JavaScript, PHP and MYSQl. These are the languages that will be used to create this site. 
 HTML - Setting the webiste out and creating the components that will be used 
 CSS - Styling the HTML to create a professional evniroment 
