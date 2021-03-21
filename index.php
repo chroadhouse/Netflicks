@@ -4,26 +4,25 @@
 	<title>Homepage</title>
 	<link rel="stylesheet" href="style2.css"> 
 	<head> 
+
+		<?php include 'include/connection.php' ?>
+	
 	    <meta charset="utf-8"> 
+	</head>
+	<?php 
+		$conn = OpenCon();
+		?>
 	<body> 
-<div class = container1>
+	<div class = container1>
 	<label for="Language">Select Language: </label> <!-- drop down for language selection -->
 	<select name="Language" id="Language">
-					<optgroup label = English(UK)> 
-			        <optgroup label = Franasais> 
-					<optgroup label = Espatol> 
-					<optgroup label = Latin> 
-					<optgroup label = Nederlands> 
+					<optgroup label = English> 
+			        <optgroup label = Française> 
+					<optgroup label = Español> 
 					<optgroup label = Deutsch> 
 					<optgroup label = Italiano>
-					<optgroup label = Magyar>
-					<optgroup label = Bosanski> 
-					<optgroup label = Dansk>
-					<optgroup label = Svenska>
-					<optgroup label = Hrvatski>
-					<optgroup label = Bahasa Indonasia>
-					<optgroup label = Bahasa melayu>    
-
+					<optgroup label = Chinese>	
+					<optgroup label = Arabic>					
 		</optgroup>
 	</optgroup>
 </optgroup>
