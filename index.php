@@ -107,8 +107,9 @@
 </div>
 
 <div class = "searchBar">
-  <input type="text" placeholder="Search..."> <!-- Search bar -->
-  <!--<button type ="submit"><i class = "fa fa-search"></i></button></button>-->
+  <input type="text" placeholder="Search..." id="searchBar"> <!-- Search bar -->
+  <script type="text/javascript" src="Validate.js"></script>
+  <button type ="button" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
 </div>
 </div>
 </div>
