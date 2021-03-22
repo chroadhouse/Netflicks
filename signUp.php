@@ -5,6 +5,9 @@
 		<title>Sign Up</title>
 		<link rel="stylesheet" href="css/SignUp.css">
 	</head>
+	<?php 
+		$conn = OpenCon();
+		?>
 	<body>
 		<div class="SignUp">
 			<h1>Sign Up</h1>
@@ -31,38 +34,37 @@
 			<div id = "genre" class = "dropdown-check-box" tabindex = "50">
 				<span class = "firstDrop">Select Favourite Genre </span>
 				<ul class = "items">
-					<li><input type="checkbox" />Action </li>
-					<li><input type="checkbox" />Adventure</li>
-					<li><input type="checkbox" />Crime </li>
-					<li><input type="checkbox" />Mystery </li>
-					<li><input type="checkbox" />Thriller </li>
-					<li><input type="checkbox" />Romance </li>
-					<li><input type="checkbox" />Fantasy</li>
-					<li><input type="checkbox" />Drama </li>
-					<li><input type="checkbox" />Animations</li>
-					<li><input type="checkbox" />Family </li>
-					<li><input type="checkbox" />Comedy </li>
-					<li><input type="checkbox" />Horror </li>
-					<li><input type="checkbox" />History </li>
-					<li><input type="checkbox" />War</li>
-					<li><input type="checkbox" />Science Fiction </li>
-					<li><input type="checkbox" />Foreign</li>
-					<li><input type="checkbox" />Music </li>
-					<li><input type="checkbox" />Western </li>
-					<li><input type="checkbox" />Documentary </li>
-					<li><input type="checkbox" />TV Movie </li>
+					<li><input type="radio" name ="genre"/>Action </li>
+					<li><input type="radio" name ="genre"/>Adventure</li>
+					<li><input type="radio" name ="genre"/>Crime </li>
+					<li><input type="radio" name ="genre"/>Mystery </li>
+					<li><input type="radio" name ="genre"/>Thriller </li>
+					<li><input type="radio" name ="genre"/>Romance </li>
+					<li><input type="radio" name ="genre"/>Fantasy</li>
+					<li><input type="radio" name ="genre"/>Drama </li>
+					<li><input type="radio" name ="genre"/>Animations</li>
+					<li><input type="radio" name ="genre"/>Family </li>
+					<li><input type="radio" name ="genre"/>Comedy </li>
+					<li><input type="radio" name ="genre"/>Horror </li>
+					<li><input type="radio" name ="genre"/>History </li>
+					<li><input type="radio" name ="genre"/>Science Fiction </li>
+					<li><input type="radio" name ="genre"/>Foreign</li>
+					<li><input type="radio" name ="genre"/>Music </li>
+					<li><input type="radio" name ="genre"/>Western </li>
+					<li><input type="radio" name ="genre"/>Documentary </li>
+					<li><input type="radio" name ="genre"/>TV Movie </li>
 				</ul>
 			</div>
 
 			<div id = "language" class = "dropdown-check-box" tabindex = "50">
 				<span class = "secondDrop">Select language</span>
 				<ul class = "items">
-					<li><input type="checkbox" />English </li>
-					<li><input type="checkbox" />Française</li>
-					<li><input type="checkbox" />Deutsch </li>
-					<li><input type="checkbox" />Italiano </li>
-					<li><input type="checkbox" />Chinese</li>
-					<li><input type="checkbox" />Arabic </li>
+					<li><input type="radio" name ="language"/>English </li>
+					<li><input type="radio" name ="language"/>Française</li>
+					<li><input type="radio" name ="language"/>Deutsch </li>
+					<li><input type="radio" name ="language"/>Italiano </li>
+					<li><input type="radio" name ="language"/>Chinese</li>
+					<li><input type="radio" name ="language"/>Arabic </li>
 				</ul>
 			</div>
 
