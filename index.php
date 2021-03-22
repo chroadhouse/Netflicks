@@ -2,7 +2,7 @@
 	 
 	<html lang="en"> 
 	<title>Homepage</title>
-	<link rel="stylesheet" href="style2.css"> 
+	<link rel="stylesheet" href="css/style2.css"> 
 	<head> 
 
 		<?php include 'include/connection.php' ?>
@@ -126,7 +126,7 @@
 
 <div class = "searchBar">
   <input type="text" placeholder="Search..." id="searchBar"> <!-- Search bar -->
-  <script type="text/javascript" src="Validate.js"></script>
+  <script type="text/javascript" src="js/Validate.js"></script>
   <button type ="button" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
 </div>
 </div>

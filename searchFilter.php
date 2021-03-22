@@ -2,7 +2,7 @@
 	 
 	<html lang="en"> 
 	<title>Search Filter</title>
-	<link rel="stylesheet" href="style2.css"> 
+	<link rel="stylesheet" href="css/style2.css"> 
 	<head> 
 
 		<?php include 'include/connection.php' ?>
