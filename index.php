@@ -101,9 +101,28 @@
 </div>
 
 <div class = "user">
-	<button type="button1">Log In</button> <!-- Button for account Log In -->
-	<button type="button2">Sign Up</button> <!-- Button for account Sign Up -->
+	<button id ="loginButton" type="button1">Log In</button> <!-- Button for account Log In -->
+	<button id ="signUpButton"type="button2">Sign Up</button> <!-- Button for account Sign Up -->
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
+
+    function initialiseWebPage() {
+    const loginPageBtn = document.getElementById("loginButton");
+    const signUpPageBtn = document.getElementById("signUpButton");
+    loginPageBtn.addEventListener("click", redirectToUrl);
+    signUpButton.addEventListener("click", redirectToSignUpUrl);
+
+    function redirectToUrl() {
+        location.href = "login.html";
+        }
+
+    function redirectToSignUpUrl() {
+        location.href = "SignUp.html";
+    }
+}
+</script>
 
 <div class = "searchBar">
   <input type="text" placeholder="Search..." id="searchBar"> <!-- Search bar -->
@@ -265,4 +284,3 @@
 </footer>
 </body>
 </html>
-
