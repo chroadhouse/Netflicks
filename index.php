@@ -115,11 +115,11 @@
     signUpButton.addEventListener("click", redirectToSignUpUrl);
 
     function redirectToUrl() {
-        location.href = "login.html";
+        location.href = "login.php";
         }
 
     function redirectToSignUpUrl() {
-        location.href = "SignUp.html";
+        location.href = "SignUp.php";
     }
 }
 </script>
