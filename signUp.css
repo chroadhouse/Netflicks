@@ -1,0 +1,155 @@
+body {
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+}
+.SignUp{
+    width: 400px;
+    background-color: #ffffff;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+    margin: 100px auto;
+}
+.SignUp h1 {
+    text-align: center;
+    color: #5b6574;
+    font-size: 24px;
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #dee0e4;
+}
+.SignUp form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+.SignUp form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color:rgb(145, 17, 17);
+    color: #ffffff;
+}
+.SignUp form input[type="password"], .SignUp form input[type="text"], .SignUp form input[type="email"], .SignUp form input[type="int"] {
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+.SignUp form input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: rgb(145, 17, 17);
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+.SignUp form input[type="submit"]:hover {
+    background-color:rgb(145, 17, 17);
+    transition: background-color 0.2s;
+}
+.dropdown-check-box {
+    /*display: inline-block;*/
+    /*width: 100%;
+    padding: 15px;
+    margin-top: 20px;*/
+    color: #5b6574;
+    font-size: 16px;
+    
+  }
+  
+.dropdown-check-box .firstDrop {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    padding: 0 15px;
+    padding-right: 65px;
+  }
+
+  .dropdown-check-box .secondDrop {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+
+    width: 310px;
+    height: 50px;
+    border: 1px solid #dee0e4;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    padding: 0 15px;
+    padding-right: 65px;
+  }
+  
+.dropdown-check-box .firstDrop:after  {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+
+  .dropdown-check-box .secondDrop:after  {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
+  
+.dropdown-check-box .firstDrop:active:after {
+    right: 8px;
+    top: 21%;
+  }
+
+.dropdown-check-box .secondDrop:active:after {
+    right: 8px;
+    top: 21%;
+  }
+  
+.dropdown-check-box ul.items {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+.dropdown-check-box ul.items li {
+    list-style: none;
+  }
+  
+.dropdown-check-box.visible .anchor {
+    color: #0094ff;
+  }
+  
+.dropdown-check-box.visible .items {
+    display: block;
+  }
