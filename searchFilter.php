@@ -52,32 +52,7 @@
 
 <br>
 
-<footer> <!-- Page footer -->
-<div class = footer>
-	<div class = container5> <!-- Containers used for redirections to information about the site -->
-		<header2> BASICS </header2>
-			<p> Support </p>
-			<p> Account Usage </p>
-	
-	</div>
 
-	<div class = container6>
-		<header3> ABOUT US
-			<p> Developers </p>
-			<p> Email </p>
-			<p> Contact Us </p>
-		</header3>
-	</div>
-
-	<div class = container7>
-		<header4> LEGALS
-			<p> Health & Safety </p>
-			<p> Privacy </p>
-			<p> Conditions of Use </p>
-		</header4>
-	</div>
-</div>
-</footer>
 </body>
 
 </html>

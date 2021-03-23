@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php include 'include/connection.php' ?>
-		<?php include 'include/insertUser.php' ?>
-		<?php include 'include/checkUserExist.php' ?>
 		<meta charset="utf-8">
 		<title>Sign Up</title>
 		<link rel="stylesheet" href="css/SignUp.css">
 	</head>
-	<?php 
-		$conn = OpenCon();
-		?>
 	<body>
 		<div class="SignUp">
 			<h1>Sign Up</h1>
@@ -37,63 +31,41 @@
 			<div id = "genre" class = "dropdown-check-box" tabindex = "50">
 				<span class = "firstDrop">Select Favourite Genre </span>
 				<ul class = "items">
-					<li><input type="radio" name ="genre" value ="Action"/>Action </li>
-					<li><input type="radio" name ="genre" value ="Adventure"/>Adventure</li>
-					<li><input type="radio" name ="genre" value ="Crime"/>Crime </li>
-					<li><input type="radio" name ="genre" value = "Mystery"/>Mystery </li>
-					<li><input type="radio" name ="genre" value = "Thriller"/>Thriller </li>
-					<li><input type="radio" name ="genre" value = "Romance"/>Romance </li>
-					<li><input type="radio" name ="genre" value = "Fantasy"/>Fantasy</li>
-					<li><input type="radio" name ="genre" value = "Drama"/>Drama </li>
-					<li><input type="radio" name ="genre" value = "Animations"/>Animations</li>
-					<li><input type="radio" name ="genre" value = "Family"/>Family </li>
-					<li><input type="radio" name ="genre" value = "Comedy"/>Comedy </li>
-					<li><input type="radio" name ="genre" value = "Horror"/>Horror </li>
-					<li><input type="radio" name ="genre" value = "History"/>History </li>
-					<li><input type="radio" name ="genre" value = "Science Fiction"/>Science Fiction </li>
-					<li><input type="radio" name ="genre" value = "Foreign"/>Foreign</li>
-					<li><input type="radio" name ="genre" value = "Music"/>Music </li>
-					<li><input type="radio" name ="genre" value = "Western"/>Western </li>
-					<li><input type="radio" name ="genre" value = "Documentary"/>Documentary </li>
-					<li><input type="radio" name ="genre" value = "TV Movie"/>TV Movie </li>
+					<li><input type="checkbox" />Action </li>
+					<li><input type="checkbox" />Adventure</li>
+					<li><input type="checkbox" />Crime </li>
+					<li><input type="checkbox" />Mystery </li>
+					<li><input type="checkbox" />Thriller </li>
+					<li><input type="checkbox" />Romance </li>
+					<li><input type="checkbox" />Fantasy</li>
+					<li><input type="checkbox" />Drama </li>
+					<li><input type="checkbox" />Animations</li>
+					<li><input type="checkbox" />Family </li>
+					<li><input type="checkbox" />Comedy </li>
+					<li><input type="checkbox" />Horror </li>
+					<li><input type="checkbox" />History </li>
+					<li><input type="checkbox" />War</li>
+					<li><input type="checkbox" />Science Fiction </li>
+					<li><input type="checkbox" />Foreign</li>
+					<li><input type="checkbox" />Music </li>
+					<li><input type="checkbox" />Western </li>
+					<li><input type="checkbox" />Documentary </li>
+					<li><input type="checkbox" />TV Movie </li>
 				</ul>
 			</div>
 
 			<div id = "language" class = "dropdown-check-box" tabindex = "50">
 				<span class = "secondDrop">Select language</span>
 				<ul class = "items">
-					<li><input type="radio" name ="language" value = "English"/>English </li>
-					<li><input type="radio" name ="language" value = "French"/>Française</li>
-					<li><input type="radio" name ="language" value = "Spanish"/>Español</li>
-					<li><input type="radio" name ="language" value = "German"/>Deutsch </li>
-					<li><input type="radio" name ="language" value = "Italian"/>Italiano </li>
-					<li><input type="radio" name ="language" value = "Chinese"/>Chinese</li>
-					<li><input type="radio" name ="language" value = "Arabic"/>Arabic </li>
+					<li><input type="checkbox" />English </li>
+					<li><input type="checkbox" />Française</li>
+					<li><input type="checkbox" />Deutsch </li>
+					<li><input type="checkbox" />Italiano </li>
+					<li><input type="checkbox" />Chinese</li>
+					<li><input type="checkbox" />Arabic </li>
 				</ul>
 			</div>
-			<?php
-				if (isset($_POST['firstName'],$_POST['lastName'],$_POST['age'], $_POST['username'], $_POST['password'], $_POST['email'], $_POST['genre'], $_POST['language'])) 
-				{
-					$firstName = $_POST['firstName'];
-					$lastName = $_POST['lastName'];
-					$age = $_POST['age'];
-					$username = $_POST['username'];
-					$password = $_POST['password'];
-					$email = $_POST['email'];
-					$genre = $_POST['genre'];
-					$language = $_POST['language'];
 
-					$exist=checkExist($conn,$username);
-						
-					if ($exist==false)
-					{						
-						insertUser($conn, $firstName, $lastName, $age, $username, $password, $email, $genre, $language);
-						header("location: index.php");
-						exit;
-					}
-					else echo "Username already taken";	
-				}
-			?>
 			<script>
 				var checkList = document.getElementById("genre");
 				
