@@ -164,7 +164,6 @@
   		<label for="Revenue"><b>Revenue between:</b> <input type="text" id="Revenue1" name="Revenue1"> - <input type="text" id="Revenue2" name="Revenue2"></label><br>
   		<label for="Director"><b>Director:</b> <input type="text" id="Director" name="Director"></label><br>
   		<label for="Actor"><b>Actor: </b><input type="text" id="Actor" name="Actor"></label><br>
-  		<label for="MovieTitle"><b>Movie Title: </b><input type="text" id="Title" name="Title"></label><br>
 	</div>
       
     </div>
