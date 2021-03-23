@@ -2,7 +2,8 @@
 	 
 	<html lang="en"> 
 	<title>Homepage</title>
-	<link rel="stylesheet" href="css/style2.css"> 
+	<link rel="stylesheet" href="css/style2.css">
+	<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
 	<head> 
 
 		<?php include 'include/connection.php' ?>
@@ -128,9 +129,83 @@
   <input type="text" placeholder="Search..." id="searchBar"> <!-- Search bar -->
   <script type="text/javascript" src="js/Validate.js"></script>
   <button type ="button" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
+  <button type="button" id="filterBtn" name="filter" onclick="document.getElementById('filterModal').style.display='block'" >Filter</button>
 </div>
 </div>
 </div>
+<!-- the modal --> 
+<div id="filterModal" class="modal">
+  
+  <form class="modal-content animate" action="filter.php" method="post">
+    <div class="topContainer">
+    	<h3>Filter</h3>
+        <span onclick="document.getElementById('filterModal').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+    <div class="container">
+      <label for="uname"><b>Genre</b></label>
+      <div class="GenreRowOne">
+      	<label><input type="checkbox" name="Action">Action</label>
+      	<label><input type="checkbox" name="Adventure">Adventure</label>
+      	<label><input type="checkbox" name="Crime">Crime</label>
+      	<label><input type="checkbox" name="Mystery">Mystery</label>
+      	<label><input type="checkbox" name="Thriller">Thriller</label>
+      </div>
+      <div class="GenreRowTwo">
+      	<label><input type="checkbox" name="Romance">Romance</label>
+      	<label><input type="checkbox" name="Fantasy">Fantasy</label>
+      	<label><input type="checkbox" name="Drama">Drama</label>
+      	<label><input type="checkbox" name="Animations">Animations</label>
+      	<label><input type="checkbox" name="Family">Family</label>
+      </div>
+      <div class="GenreRowThree">
+      	<label><input type="checkbox" name="Comedy">Comedy</label>
+      	<label><input type="checkbox" name="Horror">Horror</label>
+      	<label><input type="checkbox" name="History">History</label>
+      	<label><input type="checkbox" name="War">War</label>
+      	<label><input type="checkbox" name="Science Fiction">Science Fiction</label>
+      </div>
+      <div class="GenreRowFour">
+      	<label><input type="checkbox" name="Foreign">Foreign</label>
+      	<label><input type="checkbox" name="Music">Music</label>
+      	<label><input type="checkbox" name="Western">Western</label>
+      	<label><input type="checkbox" name="Documentary">Documentary</label>
+      	<label><input type="checkbox" name="TV Movie">TV Movie</label>
+      </div>
+<!--<input type="text" placeholder="Enter Username" name="uname" required> -->
+	<div>
+	  	<label for="Year"><b>Release year: </b><input type="text" id="Year" name="Year"><br></label><br>
+  		<label for="Budget"><b>Budget between:</b> <input type="text" id="Budget1" name="Budget1"> - <input type="text" id="Budget2" name="Budget2"></label><br>
+  		<label for="Revenue"><b>Revenue between:</b> <input type="text" id="Revenue1" name="Revenue1"> - <input type="text" id="Revenue2" name="Revenue2"></label><br>
+  		<label for="Director"><b>Director:</b> <input type="text" id="Director" name="Director"></label><br>
+  		<label for="Actor"><b>Actor: </b><input type="text" id="Actor" name="Actor"></label><br>
+  		<label for="MovieTitle"><b>Movie Title: </b><input type="text" id="Title" name="Title"></label><br>
+	</div>
+      
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="submit" value="submit" onclick="document.getElementById('filterModal').style.display='none'" >Confirm</button>
+      <button type="button" onclick="document.getElementById('filterModal').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('filterModal');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+
+
 
 <!--<br> </br>-->
 <div class = floatContainer>
