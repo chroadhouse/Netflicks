@@ -2,12 +2,12 @@
 	 
 	<html lang="en"> 
 	<title>Homepage</title>
-	<link rel="stylesheet" href="css/style2.css">
-	<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
+	
 	<head> 
 
 		<?php include 'connection.php' ?>
-	
+		<link rel="stylesheet" href="css/style2.css"> 
+		<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
 	    <meta charset="utf-8"> 
 	</head>
 	<?php 
@@ -112,9 +112,12 @@
 </script>
 
 <div class = "searchBar">
-  <input type="text" placeholder="Search..." id="searchBar"> <!-- Search bar -->
-  <script type="text/javascript" src="js/Validate.js"></script>
-  <button type ="button" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
+  <form method="post" action="filter.php">
+  	<input type="text" placeholder="Search..." id="searchBar" name="searchBar"> <!-- Search bar -->
+  	<script type="text/javascript" src="js/Validate.js"></script>
+  	<input type ="submit" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >
+  </form>
+  
   <button type="button" id="filterBtn" name="filter" onclick="document.getElementById('filterModal').style.display='block'" >Filter</button>
 </div>
 </div>
@@ -122,7 +125,7 @@
 <!-- the modal --> 
 <div id="filterModal" class="modal">
   
-  <form class="modal-content animate" action="filter.php" method="post">
+  <form class="modal-content animate" action="" method="post"> <!--Was able t-->
     <div class="topContainer">
     	<h3>Filter</h3>
         <span onclick="document.getElementById('filterModal').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -187,3 +190,8 @@ window.onclick = function(event) {
     }
 }
 </script>
+
+
+<?php
+	
+?>

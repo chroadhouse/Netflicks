@@ -3,7 +3,7 @@
 	<div class = container5> <!-- Containers used for redirections to information about the site -->
 		<header2> <b> BASICS </b> </header2>
 		<br> </br>
-			<button3> <a href="Basics.php"><u> Support </u></a> </button3>
+			<button3 style='color:white'> <a href="Basics.php"><u> Support </u></a> </button3>
 		<br> </br>
 			<button3><a href="Basics.php"><u> Account Usage </u> </a></button3>
 	</div>
