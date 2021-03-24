@@ -112,10 +112,10 @@
 </script>
 
 <div class = "searchBar">
-  <form method="POST" name="searhBarForm" id="searchBarForm" action="">
+  <form method="POST" name="searhBarForm" id="searchBarForm" action="/searchResult.php">
   	<input type="text" placeholder="Search..." id="searchBar" name="searchBar"> <!-- Search bar -->
   	<script type="text/javascript" src="js/Validate.js"></script>
-  	<input type ="submit" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >
+  	<button type ="button" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
   </form>
   
   <button type="button" id="filterBtn" name="filter" onclick="document.getElementById('filterModal').style.display='block'" >Filter</button>
@@ -125,7 +125,7 @@
 <!-- the modal --> 
 <div id="filterModal" class="modal">
   
-  <form class="modal-content"> <!--Was able t-->
+  <form class="modal-content" method="POST" action="/filterResult.php" id="modal-content"> <!--Was able t-->
     <div class="topContainer">
     	<h3>Filter</h3>
         <span onclick="document.getElementById('filterModal').style.display='none'" class="close" title="Close Modal">&times;</span>
