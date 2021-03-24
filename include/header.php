@@ -112,7 +112,7 @@
 </script>
 
 <div class = "searchBar">
-  <form method="post" action="filter.php">
+  <form method="POST" name="searhBarForm" id="searchBarForm" action="">
   	<input type="text" placeholder="Search..." id="searchBar" name="searchBar"> <!-- Search bar -->
   	<script type="text/javascript" src="js/Validate.js"></script>
   	<input type ="submit" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >
