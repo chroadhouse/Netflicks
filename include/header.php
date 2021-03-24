@@ -125,7 +125,7 @@
 <!-- the modal --> 
 <div id="filterModal" class="modal">
   
-  <form class="modal-content animate" action="" method="post"> <!--Was able t-->
+  <form class="modal-content"> <!--Was able t-->
     <div class="topContainer">
     	<h3>Filter</h3>
         <span onclick="document.getElementById('filterModal').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -133,32 +133,32 @@
     <div class="container">
       <label for="uname"><b>Genre</b></label>
       <div class="GenreRowOne">
-      	<label><input type="checkbox" name="Action">Action</label>
-      	<label><input type="checkbox" name="Adventure">Adventure</label>
-      	<label><input type="checkbox" name="Crime">Crime</label>
-      	<label><input type="checkbox" name="Mystery">Mystery</label>
-      	<label><input type="checkbox" name="Thriller">Thriller</label>
+      	<label><input type="checkbox" name="Action" id="Action">Action</label>
+      	<label><input type="checkbox" name="Adventure" id="Adventure">Adventure</label>
+      	<label><input type="checkbox" name="Crime" id="Crime">Crime</label>
+      	<label><input type="checkbox" name="Mystery" id="Mystery">Mystery</label>
+      	<label><input type="checkbox" name="Thriller" id="Thriller">Thriller</label>
       </div>
       <div class="GenreRowTwo">
-      	<label><input type="checkbox" name="Romance">Romance</label>
-      	<label><input type="checkbox" name="Fantasy">Fantasy</label>
-      	<label><input type="checkbox" name="Drama">Drama</label>
-      	<label><input type="checkbox" name="Animations">Animations</label>
-      	<label><input type="checkbox" name="Family">Family</label>
+      	<label><input type="checkbox" name="Romance" id="Romance">Romance</label>
+      	<label><input type="checkbox" name="Fantasy" id="Fantasy">Fantasy</label>
+      	<label><input type="checkbox" name="Drama" id="Drama">Drama</label>
+      	<label><input type="checkbox" name="Animations" id="Animations">Animations</label>
+      	<label><input type="checkbox" name="Family" id="Family">Family</label>
       </div>
       <div class="GenreRowThree">
-      	<label><input type="checkbox" name="Comedy">Comedy</label>
-      	<label><input type="checkbox" name="Horror">Horror</label>
-      	<label><input type="checkbox" name="History">History</label>
-      	<label><input type="checkbox" name="War">War</label>
-      	<label><input type="checkbox" name="Science Fiction">Science Fiction</label>
+      	<label><input type="checkbox" name="Comedy" id="Comedy">Comedy</label>
+      	<label><input type="checkbox" name="Horror" id="Horror">Horror</label>
+      	<label><input type="checkbox" name="History" id="History">History</label>
+      	<label><input type="checkbox" name="War" id="War">War</label>
+      	<label><input type="checkbox" name="Science Fiction" id="Science Fiction">Science Fiction</label>
       </div>
       <div class="GenreRowFour">
-      	<label><input type="checkbox" name="Foreign">Foreign</label>
-      	<label><input type="checkbox" name="Music">Music</label>
-      	<label><input type="checkbox" name="Western">Western</label>
-      	<label><input type="checkbox" name="Documentary">Documentary</label>
-      	<label><input type="checkbox" name="TV Movie">TV Movie</label>
+      	<label><input type="checkbox" name="Foreign" id="Foreign">Foreign</label>
+      	<label><input type="checkbox" name="Music" id="Music">Music</label>
+      	<label><input type="checkbox" name="Western" id="Western">Western</label>
+      	<label><input type="checkbox" name="Documentary" id="Documentary">Documentary</label>
+      	<label><input type="checkbox" name="TV Movie" id="TV Movie">TV Movie</label>
       </div>
 <!--<input type="text" placeholder="Enter Username" name="uname" required> -->
 	<div>
@@ -172,7 +172,7 @@
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="submit" value="submit" onclick="document.getElementById('filterModal').style.display='none'" >Confirm</button>
+      <button type="button" onclick=" validateFilterSearch();" >Confirm</button>
       <button type="button" onclick="document.getElementById('filterModal').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
   </form>
