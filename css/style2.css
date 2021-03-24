@@ -9,6 +9,20 @@
     margin-right: 130px;
 }
 
+#search {
+position: absolute;
+top: 195px;
+left: 1000px;
+margin-right: 130px;
+}
+#filterBtn {
+position: absolute;
+top: 195px;
+left: 1063px;
+margin-right: 130px;
+}
+
+
 body {
     /*background-color:  #9b9a78;*/
     background-color: rgb(0, 0, 0);
@@ -305,3 +319,4 @@ html{
   from {opacity: .4}
   to {opacity: 1}
 }
+
