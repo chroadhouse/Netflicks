@@ -133,32 +133,32 @@
     <div class="container">
       <label for="uname"><b>Genre</b></label>
       <div class="GenreRowOne">
-      	<label><input type="checkbox" name="genre[]" id="Action" value="Action">Action</label>
-      	<label><input type="checkbox" name="genre[]" id="Adventure" value="Adventure">Adventure</label>
-      	<label><input type="checkbox" name="genre[]" id="Crime" value="Crime">Crime</label>
-      	<label><input type="checkbox" name="genre[]" id="Mystery" value="Mystery">Mystery</label>
-      	<label><input type="checkbox" name="genre[]" id="Thriller" value="Thriller">Thriller</label>
+      	<label><input type="checkbox" name="Action" id="Action">Action</label>
+      	<label><input type="checkbox" name="Adventure" id="Adventure">Adventure</label>
+      	<label><input type="checkbox" name="Crime" id="Crime">Crime</label>
+      	<label><input type="checkbox" name="Mystery" id="Mystery">Mystery</label>
+      	<label><input type="checkbox" name="Thriller" id="Thriller">Thriller</label>
       </div>
       <div class="GenreRowTwo">
-      	<label><input type="checkbox" name="genre[]" id="Romance" value="Romance">Romance</label>
-      	<label><input type="checkbox" name="genre[]" id="Fantasy" value="Fantasy">Fantasy</label>
-      	<label><input type="checkbox" name="genre[]" id="Drama" value="Drama">Drama</label>
-      	<label><input type="checkbox" name="genre[]" id="Animations" value="Animations">Animations</label>
-      	<label><input type="checkbox" name="genre[]" id="Family" value="Family">Family</label>
+      	<label><input type="checkbox" name="Romance" id="Romance">Romance</label>
+      	<label><input type="checkbox" name="Fantasy" id="Fantasy">Fantasy</label>
+      	<label><input type="checkbox" name="Drama" id="Drama">Drama</label>
+      	<label><input type="checkbox" name="Animations" id="Animations">Animations</label>
+      	<label><input type="checkbox" name="Family" id="Family">Family</label>
       </div>
       <div class="GenreRowThree">
-      	<label><input type="checkbox" name="genre[]" id="Comedy" value="Comedy">Comedy</label>
-      	<label><input type="checkbox" name="genre[]" id="Horror" value="Horror">Horror</label>
-      	<label><input type="checkbox" name="genre[]" id="History" value="History">History</label>
-      	<label><input type="checkbox" name="genre[]" id="War" value="War">War</label>
-      	<label><input type="checkbox" name="genre[]" id="Science Fiction" value="Science Fiction">Science Fiction</label>
+      	<label><input type="checkbox" name="Comedy" id="Comedy">Comedy</label>
+      	<label><input type="checkbox" name="Horror" id="Horror">Horror</label>
+      	<label><input type="checkbox" name="History" id="History">History</label>
+      	<label><input type="checkbox" name="War" id="War">War</label>
+      	<label><input type="checkbox" name="Science Fiction" id="Science Fiction">Science Fiction</label>
       </div>
       <div class="GenreRowFour">
-      	<label><input type="checkbox" name="genre[]" id="Foreign" value="Foreign">Foreign</label>
-      	<label><input type="checkbox" name="genre[]" id="Music" value="Music">Music</label>
-      	<label><input type="checkbox" name="genre[]" id="Western" value="Western">Western</label>
-      	<label><input type="checkbox" name="genre[]" id="Documentary" value="Documentary">Documentary</label>
-      	<label><input type="checkbox" name="genre[]" id="TV Movie" value="TV Movie">TV Movie</label>
+      	<label><input type="checkbox" name="Foreign" id="Foreign">Foreign</label>
+      	<label><input type="checkbox" name="Music" id="Music">Music</label>
+      	<label><input type="checkbox" name="Western" id="Western">Western</label>
+      	<label><input type="checkbox" name="Documentary" id="Documentary">Documentary</label>
+      	<label><input type="checkbox" name="TV Movie" id="TV Movie">TV Movie</label>
       </div>
 <!--<input type="text" placeholder="Enter Username" name="uname" required> -->
 	<div>
