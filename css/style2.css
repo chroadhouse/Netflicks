@@ -2,12 +2,6 @@
 	margin: 100;
 	padding: 100;
 } 
-.user{
-    position: relative;
-    top: -100px;
-    left: 1000px;
-    margin-right: 130px;
-}
 
 #homepage {
   color: white;
@@ -18,14 +12,16 @@
 #search {
 position: relative;
 top: -50px;
-left: 1000px;
+left: 1095px;
 margin-right: 130px;
+width : 5%;
 }
 #filterBtn {
 position: relative;
-top: -71px;
-left: 1063px;
+top: -72px;
+left: 1183px;
 margin-right: 130px;
+width : 5%;
 }
 
 
@@ -99,10 +95,10 @@ html{
 
  .searchBar input[type = "text"]{
     position: relative;
-    top: -88px;
-    left: 30px;
+    top: -86px;
+    left: 322px;
     margin-right: 130px;
-    width: 8%;
+    width: 12%;
     float: right;
     /*padding: 6px;*/
     border-radius: 1ex;
@@ -111,7 +107,25 @@ html{
     font-size: 17px;
 }
 
+#loginButton {
+  position: relative;
+  top :22px;
+  left :30px;
+}
 
+#signUpButton {
+   position: relative;
+   left :118px;
+}
+
+.user{
+    position: relative;
+    top: -140px;
+    left:10px;
+    margin-right: 130px;
+    width: 8%;
+    float: right;
+}
   
 .container2 {
 	width: 24.5%;
