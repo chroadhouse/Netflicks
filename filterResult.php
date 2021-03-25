@@ -4,16 +4,10 @@
 	if (isset($_POST['Year'], $_POST['Budget1'], $_POST['Budget2'], $_POST['Revenue1'], $_POST['Revenue2'], $_POST['Actor'], $_POST['Director']))
 	{
 
-		/*if (isset($_POST['genre']))
-		{
-			$genre = $_POST['genre'];
-			$string = implode(',',$genre);
-		}
-		else
-		{
-			$string = "";
-		}*/
+		
 
+
+		
 		$year = $_POST['Year'];
 		$actor = $_POST['Actor'];
 		$budgetMin = $_POST['Budget1'];
@@ -41,35 +35,29 @@
 		}
 
 
-		
+
 		if ($actor!="" && $director == "")
 		{
 			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
-				(((actor inner join castactor on actor.ActorID = castactor.ActorID) inner join castteam on castteam.CastID = castactor.CastID) inner join movie on movie.CastID = castteam.CastID) 
-				WHERE ((Movie_Release_date like '%$year') AND (Actor.ActorName like '%$actor') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
+			(((actor inner join castactor on actor.ActorID = castactor.ActorID) inner join castteam on castteam.CastID = castactor.CastID) inner join movie on movie.CastID = castteam.CastID) 
+			WHERE ((Movie_Release_date like '%$year') AND (Actor.ActorName like '%$actor') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
 		}
 		else if ($director != "" && $actor == "")
 		{
-				$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
-				(((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) 
-				WHERE ((Movie_Release_date like '%$year') AND (CrewMembers.CrewMemberName like '%$director') AND (crewteamcrewMember.CrewMemberJob = 'Director') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
+			(((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) 
+			WHERE ((Movie_Release_date like '%$year') AND (CrewMembers.CrewMemberName like '%$director') AND (crewteamcrewMember.CrewMemberJob = 'Director') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
 		}
 		else if ($director != "" && $actor != "")
 		{
-				$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
-				((((((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) inner join castteam on castteam.CastID = movie.CastID) inner join castactor on castactor.CastID = castteam.CastID) inner join actor on actor.ActorID = castactor.ActorID)
-				WHERE ((Movie_Release_date like '%$year') AND (CrewMembers.CrewMemberName like '%$director') AND (Actor.ActorName like '%$actor') AND (crewteamcrewMember.CrewMemberJob = 'Director') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
+			((((((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) inner join castteam on castteam.CastID = movie.CastID) inner join castactor on castactor.CastID = castteam.CastID) inner join actor on actor.ActorID = castactor.ActorID)
+			WHERE ((Movie_Release_date like '%$year') AND (CrewMembers.CrewMemberName like '%$director') AND (Actor.ActorName like '%$actor') AND (crewteamcrewMember.CrewMemberJob = 'Director') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
 		}
 		else 
 		{
-				$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM ((movie inner join genremovie on movie.movieID = genremovie.MovieID) inner join genre on genre.genreID = genremovie.genreID ) WHERE ((movie.Movie_Release_date like '%$year') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax))";
-
-
-				/*AND (genre.Genre_Name in ('$string')))";*/
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM movie WHERE ((movie.Movie_Release_date like '%$year') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) )";
 		}
-	
-
-		
 
 		
 		$query = $conn -> query($sql);
