@@ -1,4 +1,4 @@
-alert('Connection to js is active');
+
 var slideIndex = 0;
 showSlides();
 var slides, dots;
