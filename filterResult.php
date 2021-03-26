@@ -86,8 +86,9 @@
 			{
 				while ($row = mysqli_fetch_array($query))
 				{ 
+					//Create array then fill data normal array --> increment through it. 
 					//$row = mysqli_fetch_array($query)[0];
-					echo "<p style='color:white ; font-size:50px; text-align:center'>" .$row[0]."</p>";
+					echo "<h1 style='color:white ; font-size:50px; text-align:center'>" .$row[0]."</h1>";
 					echo "<p style='color:white'> Overview : ".$row[1]." </p>";
 					echo "<p style='color:white'> Release date : ".$row[2]." </p>";
 					if ($row[5] == 0)
@@ -131,3 +132,4 @@
 			}
 	}
 ?>
+<?php include'include/footer.php';?>
