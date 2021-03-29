@@ -134,7 +134,7 @@
 
 <!--Code for top trending below -->
 
-    <div style="text-align:right">
+    <div style="text-align:left">
     <span class="dot" onclick="currentSlide2(1)"></span>
     <span class="dot" onclick="currentSlide2(2)"></span>
     <span class="dot" onclick="currentSlide2(3)"></span>
@@ -142,7 +142,7 @@
     </div>
 
     <!--Code for the children's slideShow-->
-    <div style="text-align:left">
+    <div style="text-align:right">
     <span class="dot" onclick="currentSlide3(1)"></span>
     <span class="dot" onclick="currentSlide3(2)"></span>
     <span class="dot" onclick="currentSlide3(3)"></span>
