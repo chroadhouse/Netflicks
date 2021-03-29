@@ -59,7 +59,7 @@
      <?php // Add the image 
        $sql = "SELECT movie.Movie_Poster_Path FROM movie WHERE movie.MovieID = '10000'";
         $query = $conn -> query($sql); 
-        while($row = sql_fetch_array($query)){ //Take the row out }
+        //while($row = sql_fetch_array($query)){ //Take the row out }
         $test = "/mdfFmAd1dXPa02GvZTnGDPWLut6.jpg"; // Get from the query 
         //These two lines are imp
         $newhtml = file_get_html("https://www.google.com/search?q=".$test."&tbm=isch");        
