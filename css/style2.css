@@ -351,7 +351,7 @@ html{
 .prev, .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 100%;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -380,7 +380,7 @@ html{
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
-  bottom: 8px;
+  bottom: -300px;
   width: 100%;
   text-align: center;
 }
