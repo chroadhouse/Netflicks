@@ -56,10 +56,19 @@
 <!--Top trending slideshow -->
 
 <div class="slideshowTopTrending-container"> <!-- Carousel containing images for the recommended movies -->
-
+     <?php // Add the image 
+       $sql = "SELECT movie.Movie_Poster_Path FROM movie WHERE movie.MovieID = '10000'";
+        $query = $conn -> query($sql); 
+        while($row = sql_fetch_array($query)){ //Take the row out }
+        $test = "/mdfFmAd1dXPa02GvZTnGDPWLut6.jpg"; // Get from the query 
+        //These two lines are imp
+        $newhtml = file_get_html("https://www.google.com/search?q=".$test."&tbm=isch");        
+        $result_image_search = $newhtml -> find('img',1) -> src; // Index one for the image 
+       // echo '<img src="'.$result_image_search.'">';
+    ?>
     <div class="mySlides2 fade">
         <div class="numbertext2"> </div>
-        <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2011/9/21/1316599625809/Infomania-Jurassic-Park-007.jpg?width=300&quality=45&auto=format&fit=max&dpr=2&s=d01ed497895a42b8b460d92bcc840369" style = "width:100%" width="253" height="395"> <!-- width="253" height="395" figure image proportions -->
+        <?php echo'<img src="'.$result_image_search.'" style = "width:100%" width="253" height="395">' ?>
         <div class="text"> Jurassic Park </div>
     </div>
     
