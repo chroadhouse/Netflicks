@@ -6,6 +6,7 @@
 	<head> 
 
 		<?php include 'connection.php' ?>
+		<?php include 'simple_html_dom.php' // Write about this in implemntation?>
 		<link rel="stylesheet" href="css/style2.css"> 
 		<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
 	    <meta charset="utf-8"> 
