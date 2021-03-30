@@ -2,56 +2,48 @@
 	margin: 100;
 	padding: 100;
 } 
-/*.user{
-    position: relative;
-    top: -100px;
-    left: 1000px;
-    margin-right: 130px;
-}*/
- .searchBar input[type = "text"]{
-    background-position: relative; 
-    position: relative;
-    top: -86px;
-    left: 322px;
-    margin-right: 130px;
-    width: 12%;
-    float: right;
-    /*padding: 6px;*/
-    border-radius: 1ex;
-    /*margin-top: 8px;
-    margin-right: 10px;*/
-    font-size: 17px;
-}
 
-/*#loginButton {
-  position: relative;
-  top :22px;
-  left :30px;
+#searchBar {
+  width:75%;
+  position : relative;
+  border-radius: 1ex;
+  font-size :17px;
 }
 
 #signUpButton {
-   position: relative;
-   left :118px;
-}*/
+  position: relative;
+  top : -15px;
+  right: -18px;
+  width: 32%;
+}
 
 #loginButton {
   position: relative;
-  bottom: -21px;
-  right: -30px;
+  top: -15px;
+  right: -3px;
+  width: 32%;
 }
 
-#signUpButton {
-  position: relative;
-  right: -118px;
+#filterBtn{
+  position : relative;
+  top: 15px;
+  right: -18px;
+  width: 32%;
 }
 
-.user{
-    position: relative;
-    top: -140px;
-    left:10px;
-    margin-right: 130px;
-    width: 8%;
-    float: right;
+#search {
+  position : relative;
+  top: 15px;
+  right: -3px;
+  width: 32%;
+  }
+
+
+
+.rightButtons {
+  position :relative;
+  float:right;
+  top : -120px;
 }
 
 #homepage {
@@ -60,51 +52,6 @@
   text-decoration: none;
 }
 
-/*#search {
-position: relative;
-top: -50px;
-left: 1000px;
-margin-right: 130px;
-}
-#filterBtn {
-position: relative;
-top: -71px;
-left: 1063px;
-margin-right: 130px;
-}*/
-
-#search{
-  position: relative;
-  right: -1100px;
-  bottom: 50px;
-  width: 5%;
-
-}
-#filterBtn{
-  position: relative;
-  right: -1010px;
-  bottom: 71px;
-  width: 5%;
-
-}
-/*#search {
-background-position: relative;
-position: relative;
-position: relative;
-top: -50px;
-left: 1095px;
-margin-right: 130px;
-width : 5%;
-}
-
-#filterBtn {
-background position: relative;
-position: relative;
-top: -72px;
-left: 1183px;
-margin-right: 130px;
-width : 5%;
-}*/
 
 body {
     /*background-color:  #9b9a78;*/
@@ -152,19 +99,19 @@ html{
 }
 
 .container1{
-    width: 100%;
+  position: relative;
+  width: 100%;
 	margin: 0 auto;
 	margin-top: 0px;
-    border-bottom-color: #a0b71f;
-    border-bottom-width: 2ex;
-    border-radius: 2ex;
-    margin: 100px auto;
-    box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+  border-bottom-color: #a0b71f;
+  border-bottom-width: 2ex;
+  border-radius: 2ex;
+  margin: 100px auto;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
 	padding-top: 12px;
-	/*background-color: #5a5a40;*/
-    background-color: rgb(145, 17, 17);
+  background-color: rgb(145, 17, 17);
 	float: center;
-    color: white;
+  color: white;
     
 }
 .floatContainer{
@@ -173,21 +120,6 @@ html{
     justify-content: center;
     padding-top: 1px;
 }
-
- /*.searchBar input[type = "text"]{
-    position: relative;
-    top: -88px;
-    left: 30px;
-    margin-right: 130px;
-    width: 8%;
-    float: right;
-    /*padding: 6px;*/
-   /* border-radius: 1ex;*/
-    /*margin-top: 8px;
-    margin-right: 10px;*/
-    /*font-size: 17px;*/
-/*}*/
-
 
   
 .container2 {
@@ -431,4 +363,47 @@ html{
   from {opacity: .4}
   to {opacity: 1}
 }
+
+
+/*
+@media (max-width:900px) {
+
+  .floatContainer {width : 50%;}
+  .header {width : 30%;  font-size: 30px;}
+  header {width :50%;}
+  .menu {width :50%;}
+  .user {width : 50%;}
+  #homepage {width : 30%;}
+  #searchBar {width :30%;}
+  #loginButton {width : 15%;}
+  #signUpButton {width : 15%;}
+  #search {width : 20%;}
+  #filterBtn {width : 15%;}
+  #menu {width :50%;}
+  #language {width : 10%;}
+  #homepage {width : 50%;}
+  .rightButtons {width: 30%;}
+  .container { width : 50%};
+  .container1 { width : 30%};
+  .container2 { width : 50%};
+  .container3 { width : 50%};
+  .container4 { width : 50%};
+  .container5 { width : 50%};
+  .container6 { width : 50%};
+  .container7 { width : 50%};
+  .container8 { width : 50%};
+  .button, .button1, .button2 {width : 50%;}
+  .slideshow-container { width : 50%};
+  .slideshowTopTrending-container {width : 50%;}
+  .slideshowChildrensMovies-container {width : 50%;}
+  .body {width : 50%;}
+  .footer {width :50%;}
+
+  #homepage {
+    color: blue;
+  }
+} */
+
+
+
 

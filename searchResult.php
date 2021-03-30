@@ -1,7 +1,6 @@
 <?php include 'include/header.php'?>
 
 
-
 <?php 
 	if (isset($_POST['searchBar']))
 	{
@@ -73,6 +72,15 @@
 			else 
 				$crew = "N/A";
 
+
+
+			$image = $result[8];
+			$newhtml = file_get_html("https://www.google.com/search?q=".$image."&tbm=isch");
+			$result_image_search = $newhtml -> find('img',1) -> src; 
+			
+			echo'<img src="'.$result_image_search.'" style = width="500" height="500">';
+
+			
 			
 			echo "<p style='color:white ; font-size:50px; text-align:center'>" .$result[6]."</p>";
 			echo "<p style='color:white'> Overview : ".$result[7]." </p>";
@@ -98,4 +106,5 @@
 
 		}
 	}
+	include ('include/footer.php');
  ?>
