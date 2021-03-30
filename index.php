@@ -1,6 +1,7 @@
 <?php include ('include/header.php')?>
 
 <!--<br> </br>-->
+<body>
 <div class = floatContainer>
 	<div class = container8>
 		<header8> RECOMMENDED FOR YOU
@@ -101,6 +102,7 @@
 <!--Childrens Movies slideshow -->
 
 <div class="slideshowChildrensMovies-container"> <!-- Carousel containing images for the recommended movies -->
+
 
     <div class="mySlides3 fade">
         <div class="numbertext3"> </div>

@@ -1,6 +1,8 @@
 <?php include 'include/header.php'?>
 
+
 <?php 
+
 	if (isset($_POST['Year'], $_POST['Budget1'], $_POST['Budget2'], $_POST['Revenue1'], $_POST['Revenue2'], $_POST['Actor'], $_POST['Director']))
 	{
 
@@ -48,7 +50,7 @@
 
 		if ($actor!="" && $director == "")
 		{
-			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID,movie.Movie_Poster_Path FROM 
 			(((((actor inner join castactor on actor.ActorID = castactor.ActorID) inner join castteam on castteam.CastID = castactor.CastID) inner join movie on movie.CastID = castteam.CastID) inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID)
 
 			WHERE ((Movie_Release_date like '%$year') AND (Actor.ActorName like '%$actor') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) AND (genre.genre_name in ($string)))
@@ -56,7 +58,7 @@
 		}
 		else if ($director != "" && $actor == "")
 		{
-			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID,movie.Movie_Poster_Path FROM 
 			(((((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID)
 
 			WHERE ((Movie_Release_date like '%$year') AND (CrewMembers.CrewMemberName like '%$director') AND (crewteamcrewMember.CrewMemberJob = 'Director') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) AND (genre.genre_name in ($string)))
@@ -64,7 +66,8 @@
 		}
 		else if ($director != "" && $actor != "")
 		{
-			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID FROM 
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID, movie.Movie_Poster_Path
+			 FROM 
 			((((((((crewMembers inner join crewteamcrewMember on crewMembers.CrewMemberID = crewteamcrewMember.CrewMemberID) inner join crewteam on crewteam.CrewTeamID = crewteamcrewMember.CrewTeamID) inner join movie on movie.CrewID = crewteam.CrewTeamID) inner join castteam on castteam.CastID = movie.CastID) inner join castactor on castactor.CastID = castteam.CastID) inner join actor on actor.ActorID = castactor.ActorID) inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID)
 
 
@@ -73,7 +76,7 @@
 		}
 		else 
 		{
-			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID, movie.Movie_Poster_Path
 			FROM ((movie inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID)
 			WHERE ((movie.Movie_Release_date like '%$year') AND (movie.Movie_Budget between $budgetMin and $budgetMax) AND (movie.Movie_Revenue between $revenueMin and $revenueMax) AND (genre.genre_name in ($string)))
 					GROUP BY movie.MovieID";
@@ -88,6 +91,12 @@
 				{ 
 					//Create array then fill data normal array --> increment through it. 
 					//$row = mysqli_fetch_array($query)[0];
+					$image = $row[9];
+					$newhtml = file_get_html("https://www.google.com/search?q=".$image."&tbm=isch");
+					$result_image_search = $newhtml -> find('img',1) -> src; 
+			
+					echo'<img src="'.$result_image_search.'" style = width="500" height="500">';
+
 					echo "<h1 style='color:white ; font-size:50px; text-align:center'>" .$row[0]."</h1>";
 					echo "<p style='color:white'> Overview : ".$row[1]." </p>";
 					echo "<p style='color:white'> Release date : ".$row[2]." </p>";
@@ -131,5 +140,5 @@
 				}
 			}
 	}
+	include ('include/footer.php');
 ?>
-<?php include'include/footer.php';?>

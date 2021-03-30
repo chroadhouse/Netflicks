@@ -15,7 +15,7 @@
 		$conn = OpenCon();
 		?>
 	<body> 
-	<div class = container1>
+<div class = container1>
 	<label for="Language">Select Language: </label> <!-- drop down for language selection -->
 	<select name="Language" id="Language">
 					<optgroup label = English> </optgroup>
@@ -82,7 +82,7 @@
 			<option value="Cookies">Cookies</option>
 		</optgroup>
 	</select>
-
+</div>
 
 <div class = header>
 	<header> <a id = "homepage" href="index.php"> NETFLICKS </a> </header> <!-- Main title for website -->
@@ -93,40 +93,41 @@
 	</style>
 </div>
 
-<div class = "user">
+<div class = "rightButtons">
+
 	<button id ="loginButton" type="button1">Log In</button> <!-- Button for account Log In -->
 	<button id ="signUpButton"type="button2">Sign Up</button> <!-- Button for account Sign Up -->
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
+	<script>
+	    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
 
-    function initialiseWebPage() {
-    const loginPageBtn = document.getElementById("loginButton");
-    const signUpPageBtn = document.getElementById("signUpButton");
-    loginPageBtn.addEventListener("click", redirectToUrl);
-    signUpButton.addEventListener("click", redirectToSignUpUrl);
+	    function initialiseWebPage() {
+	    const loginPageBtn = document.getElementById("loginButton");
+	    const signUpPageBtn = document.getElementById("signUpButton");
+	    loginPageBtn.addEventListener("click", redirectToUrl);
+	    signUpButton.addEventListener("click", redirectToSignUpUrl);
 
-    function redirectToUrl() {
-        location.href = "login.php";
-        }
+	    function redirectToUrl() {
+	        location.href = "login.php";
+	        }
 
-    function redirectToSignUpUrl() {
-        location.href = "SignUp.php";
-    }
-}
-</script>
+	    function redirectToSignUpUrl() {
+	        location.href = "SignUp.php";
+	    }
+	}
+	</script>
 
-<div class = "searchBar">
-  <form method="POST" name="searhBarForm" id="searchBarForm" action="/searchResult.php">
+
+  <form method="POST" name="searchBarForm" id="searchBarForm" action="/searchResult.php">
   	<input type="text" placeholder="Search..." id="searchBar" name="searchBar"> <!-- Search bar -->
-  	<script type="text/javascript" src="js/Validate.js"></script>
-  	<button type ="button" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
-  </form>
-  
-  <button type="button" id="filterBtn" name="filter" onclick="document.getElementById('filterModal').style.display='block'" >Filter</button>
-</div>
-</div>
+  	<script type="text/javascript" src="js/Validate.js"></script>	
+  </form>	
+
+
+	<button type ="button" value="Search" id="search" name="search" onclick="validateSearchBar(document.getElementById('searchBar').value)" >Search</button>
+  	<button type="button" id="filterBtn" name="filter" onclick="document.getElementById('filterModal').style.display='block'" >Filter</button>
+
+  </div>
 </div>
 <!-- the modal --> 
 <div id="filterModal" class="modal">
@@ -174,7 +175,6 @@
   		<label for="Director"><b>Director:</b> <input type="text" id="Director" name="Director"></label><br>
   		<label for="Actor"><b>Actor: </b><input type="text" id="Actor" name="Actor"></label><br>
 	</div>
-      
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
@@ -183,6 +183,7 @@
     </div>
   </form>
 </div>
+</body>
 
 
 <script>
@@ -198,6 +199,3 @@ window.onclick = function(event) {
 </script>
 
 
-<?php
-	
-?>
