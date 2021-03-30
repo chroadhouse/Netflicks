@@ -23,31 +23,81 @@
 
 <!--original slideshow -->
 <div class="slideshow-container"> <!-- Carousel containing images for the recommended movies -->
+	<?php // Add the image 
+       $sql1 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE (movie.Rating = '5') && (movie.Movie_Poster_Path!='null')";
+ 
+       	$query1 = $conn -> query($sql1);
+		$arrayInfoRating = array();
+		$arrayMoviesRating = array();
+		$j = 0;
+		if (mysqli_num_rows($query1) >0)
+		{
+			while ($row1 = mysqli_fetch_array($query1))
+			{ 
+				$arrayInfoRating[0] = $row1[0];  //title
+				$arrayInfoRating[1] = $row1[1];  // image
+				$arrayMoviesRating[$j] = $arrayInfoRating;
+				$j = $j+1;
+			}
 
+		}
+
+		
+		//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+
+		$size1Rating = rand(0,sizeof ($arrayMoviesRating));
+		$size2Rating = rand(0,sizeof ($arrayMoviesRating));
+		$size3Rating = rand(0,sizeof ($arrayMoviesRating));
+		$size4Rating = rand(0,sizeof ($arrayMoviesRating));
+
+
+		$movie1Rating = $arrayMoviesRating[$size1Rating]; 
+		$movie2Rating = $arrayMoviesRating[$size2Rating]; 
+		$movie3Rating = $arrayMoviesRating[$size3Rating];
+		$movie4Rating = $arrayMoviesRating[$size4Rating]; 
+
+		$title1Rating = $movie1Rating[0];
+		$title2Rating = $movie2Rating[0];
+		$title3Rating = $movie3Rating[0];
+		$title4Rating = $movie4Rating[0];
+		///fsrZN0cU6JciLkV0mNbCWRYjjl1.jpg
+        $newhtml1Rating = file_get_html("https://www.google.com/search?q=".$movie1Rating[1]."&tbm=isch");   
+        $newhtml2Rating = file_get_html("https://www.google.com/search?q=".$movie2Rating[1]."&tbm=isch");  
+        $newhtml3Rating = file_get_html("https://www.google.com/search?q=".$movie3Rating[1]."&tbm=isch");       
+        $newhtml4Rating = file_get_html("https://www.google.com/search?q=".$movie4Rating[1]."&tbm=isch");  
+
+        $result_image_search1Rating = $newhtml1Rating -> find('img',1) -> src; // Index one for the image 
+        $result_image_search2Rating = $newhtml2Rating -> find('img',1) -> src; // Index one for the image 
+        $result_image_search3Rating = $newhtml3Rating -> find('img',1) -> src; // Index one for the image 
+        $result_image_search4Rating = $newhtml4Rating -> find('img',1) -> src; // Index one for the image  
+
+        //result image echo the error if src is null. 
+
+    ?>
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src="https://images-na.ssl-images-amazon.com/images/I/A1i+4PNnr8L._RI_.jpg" style = "width:100%" width="253" height="395"> <!-- width="253" height="395" figure image proportions -->
-        <div class="text"> Cellular </div>
+        <?php echo'<img src="'.$result_image_search1Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title1Rating ?></div>
     </div>
     
 
     <div class="mySlides fade">
-        <div class="numbertext"> style="b"</div>3
-         <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Jack_Reacher_Never_Go_Back_poster.jpg" style = "width:100%" width="253" height="395"> 
-        <div class="text"> Jack Reacher </div>
+        <div class="numbertext"> </div>
+          <?php echo'<img src="'.$result_image_search2Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title2Rating ?></div>
         </div>
     
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" style = "width:100%" width="253" height="395">
-        <div class="text"> Black Panther </div>
+        <?php echo'<img src="'.$result_image_search3Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title3Rating ?></div>
     </div>
 
 
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src ="https://publish.one37pm.net/wp-content/uploads/2020/05/spiderman-mobile.jpg" style = "width:100%" width="253" height="395">
-        <div class="text"> Spiderman </div>
+        <?php echo'<img src="'.$result_image_search4Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title4Rating ?></div>
     </div>
     
     <a class="prev" onclick="plusSlidesTopRated(-1)">&#10094;</a>
@@ -75,8 +125,8 @@
     
 
     <div class="mySlides2 fade">
-        <div class="numbertext2"> style="b"</div>3
-         <img src="https://upload.wikimedia.org/wikipedia/en/e/e1/MissionImpossiblePoster.jpg" style = "width:100%" width="253" height="395">   
+        <div class="numbertext2"></div>
+         <img id ="pic2"src="https://upload.wikimedia.org/wikipedia/en/e/e1/MissionImpossiblePoster.jpg" style = "width:100%" width="253" height="395">   
         <div class="text"> Mission Impossible </div>
         </div>
 
@@ -102,31 +152,78 @@
 <!--Childrens Movies slideshow -->
 
 <div class="slideshowChildrensMovies-container"> <!-- Carousel containing images for the recommended movies -->
+	<?php // Add the image 
+       $sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM ((movie inner join genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genremovie.genreID = genre.genreID) WHERE (genre.genre_name = 'Animation') && (movie.Movie_Poster_Path!='null')";
+ 
+       	$query = $conn -> query($sql);
+		$arrayInfo = array();
+		$arrayMovies=array();
+		$i = 0;
+		if (mysqli_num_rows($query) >0)
+		{
+			while ($row = mysqli_fetch_array($query))
+			{ 
+				$arrayInfo[0] = $row[0];  //title
+				$arrayInfo[1] = $row[1];  // image
+				$arrayMovies[$i] = $arrayInfo;
+				$i = $i+1;
+			}
 
+		}
+
+		
+		//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+
+		$size1 = rand(0,sizeof ($arrayMovies));
+		$size2 = rand(0,sizeof ($arrayMovies));
+		$size3 = rand(0,sizeof ($arrayMovies));
+		$size4 = rand(0,sizeof ($arrayMovies));
+
+
+		$movie1 = $arrayMovies[$size1]; 
+		$movie2 = $arrayMovies[$size2]; 
+		$movie3 = $arrayMovies[$size3];
+		$movie4 = $arrayMovies[$size4]; 
+
+		$title1 = $movie1[0];
+		$title2 = $movie2[0];
+		$title3 = $movie3[0];
+		$title4 = $movie4[0];
+
+        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
+        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
+        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
+        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
+
+        $result_image_search1 = $newhtml1 -> find('img',1) -> src; // Index one for the image 
+        $result_image_search2 = $newhtml2 -> find('img',1) -> src; // Index one for the image 
+        $result_image_search3 = $newhtml3 -> find('img',1) -> src; // Index one for the image 
+        $result_image_search4 = $newhtml4 -> find('img',1) -> src; // Index one for the image     
+    ?>
 
     <div class="mySlides3 fade">
         <div class="numbertext3"> </div>
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91OJO5jFyqL._RI_.jpg" style = "width:100%" width="253" height="395"> <!-- width="253" height="395" figure image proportions -->
-        <div class="text"> Shrek </div>
+        <?php echo'<img src="'.$result_image_search1.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title1 ?></div>
     </div>
 
     <div class="mySlides3 fade">
         <div class="numbertext3"> </div>
-         <img src="https://upload.wikimedia.org/wikipedia/en/7/7f/Madagascar2poster.jpg" style = "width:100%" width="253" height="395"> 
-        <div class="text"> Madagascar 2 </div>
+        <?php echo'<img src="'.$result_image_search2.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title2 ?> </div>
         </div>
 
 
     <div class="mySlides3 fade">
         <div class="numbertext3"> </div>
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91D6ISx-RaL._AC_SL1500_.jpg" style = "width:100%" width="253" height="395">
-        <div class="text"> Hotel Transylvania </div>
+        <?php echo'<img src="'.$result_image_search3.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title3 ?> </div>
     </div>
 
     <div class="mySlides3 fade">
         <div class="numbertext3"> </div>
-        <img src ="https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_.jpg" style = "width:100%" width="253" height="395">
-        <div class="text"> Kung Fu Panda </div>
+        <?php echo'<img src="'.$result_image_search4.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title4 ?> </div>
     </div>
 
     <a class="prev" onclick="plusSlidesChildMovies(-1)">&#10094;</a>
