@@ -102,6 +102,13 @@
     
     <a class="prev" onclick="plusSlidesTopRated(-1)">&#10094;</a>
     <a class="next" onclick="plusSlidesTopRated(1)">&#10095;</a>
+	
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+ </div>
 </div>
 
 <!--Top trending slideshow -->
@@ -147,6 +154,12 @@
     <a class="next" onclick="plusSlidesTopTrending(1)">&#10095;</a>
 
       <!--<link rel="stylesheet" href="css/behaviour.css" type="text/css"> -->
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+   </div>
 </div>
 
 <!--Childrens Movies slideshow -->
@@ -228,35 +241,40 @@
 
     <a class="prev" onclick="plusSlidesChildMovies(-1)">&#10094;</a>
     <a class="next" onclick="plusSlidesChildMovies(1)">&#10095;</a>
-
-    
-</div>
-
-<br>
-<div style="text-align:center">
+	
+    <div style="text-align:center">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
     <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
 </div>
+
+<br>
+<!--<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+</div>-->
 
 <!--Code for top trending below -->
 
-    <div style="text-align:left">
+    <!--<div style="text-align:left">
     <span class="dot" onclick="currentSlide2(1)"></span>
     <span class="dot" onclick="currentSlide2(2)"></span>
     <span class="dot" onclick="currentSlide2(3)"></span>
     <span class="dot" onclick="currentSlide2(4)"></span>
-    </div>
+    </div>-->
 
     <!--Code for the children's slideShow-->
-    <div style="text-align:right">
+    <!--<div style="text-align:right">
     <span class="dot" onclick="currentSlide3(1)"></span>
     <span class="dot" onclick="currentSlide3(2)"></span>
     <span class="dot" onclick="currentSlide3(3)"></span>
-    <span class="dot" onclick="currentSlide3(4)"></span>
+    <span class="dot" onclick="currentSlide3(4)"></span>-->
     <script type="text/javascript" src="js/slideShow.js"></script>
-    </div>
+    <!--</div>-->
 
 <?php include ('include/footer.php') ?>
 </body>
