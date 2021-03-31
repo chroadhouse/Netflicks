@@ -3,29 +3,14 @@
 
 
 	<br> </br>
-	<!--
-  <a id="nav" class="home" href="#home">Genre</a>
-  <a id="nav" href="Comedy">Horror</a> 
-  <a id="nav" href="Comedy">Comedy</a> 
-  <a id="nav" href="Romance">Romance</a>
-  <a id="nav" href="Action">Action</a>
-  <a id="nav" href="Adventure">Adventure</a>
-  <a id="nav" href="Fantasy">Fantasy</a>
-  <a id="nav" href="Animations">Animations</a>
-  <a id="nav" href="Thriller">Thriller</a>
-  <a id="nav" href="Drama">Drama</a>
-  <a id="nav" href="Family">Family</a>
-  <a id="nav" href="History">History</a>
-  <a id="nav" href="War">War</a>
-  <a id="nav" href="Western">Western</a>
-  <a id="nav" href="Music">Musical</a>
-  <a id="nav" href="Science">Science Fiction</a>
-  <a id="nav" href="Crime">Crime</a>
-  <a id="nav" href="Mystery">Mystery</a>
-  <a id="nav" href="Foreign">Foreign</a>
-  <a id="nav" href="Documentary">Documentary</a>
-  <a id="nav" href="TV">Tv Movies</a>
+
 --><?php
+    //populateGenre('Action');
+    $arrayOne = array();
+    $arrayTwo = array();
+    $arrayThree = array();
+    $arrayFour = array();
+
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
@@ -56,42 +41,71 @@
 	</div>
 
  <br> </br>
-
+  <?php 
+      $indexOne = 0;
+    $indexTwo = 1;
+    $indexThree = 2;
+    $indexFour = 3;
+    //test Arrays 
+    $arrayOne = $arrayMovies[$indexOne];
+    $arrayTwo = $arrayMovies[$indexTwo];
+    $arrayThree = $arrayMovies[$indexThree];
+    $arrayFour = $arrayMovies[$indexFour];
+    //These can stay as they are for now 
+  ?>
 <div>
 	<div class = container2>
-		<?php echo "<header2 > Title </header2>" ?><!-- Written with php -->
+		<?php echo '<header2> '.$genreTitle.' </header2>' ?><!-- Written with php -->
 	</div>
 
 	<div class="slideshow-container"> <!-- Carousel containing images for the recommended movies -->
-
+    <!-- width="253" height="395" figure image proportions -->
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src="" style = "width:100%" width="253" height="395"> <!-- width="253" height="395" figure image proportions -->
-        <div><header4>Title</header4></div>
-        <div><p>Overview</p></div>
+        <?php
+          //Get the first image from array one 
+          //index order 0 -> Title. 1 -> Image Path 2 - > Over view
+            $newhtmImgOne = file_get_html("https://www.google.com/search?q=".$arrayOne[1]."&tbm=isch");
+            $resultImgSearchOne = $newhtmImgOne -> find('img',1) -> src;
+            echo '<img src="'.$resultImgSearchOne.'" style = "width:100%" width="253" height="395">'; 
+            echo'<div><header4>'.$arrayOne[0].'</header4></div>';
+            echo'<div><p>'.$arrayOne[2].'</p></div>' ;
+        ?>
     </div>
     
 
     <div class="mySlides fade">
-        <div class="numbertext"> style="b"</div>3
-         <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Jack_Reacher_Never_Go_Back_poster.jpg" style = "width:100%" width="253" height="395"> 
-        <div><header4>Title</header4></div>
-        <div><p>Overview</p></div>       
+        <div class="numbertext"></div>3
+        <?php
+          $newhtmImgTwo = file_get_html("https://www.google.com/search?q=".$arrayTwo[1]."&tbm=isch");
+          $resultImgSearchTwo = $newhtmImgTwo -> find('img',1) -> src;
+          echo '<img src="'.$resultImgSearchTwo.'" style = "width:100%" width="253" height="395">'; 
+          echo'<div><header4>'.$arrayTwo[0].'</header4></div>';
+          echo'<div><p>'.$arrayTwo[2].'</p></div>' ; 
+        ?>    
         </div>
     
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src="" style = "width:100%" width="253" height="395">
-        <div><header4>Title</header4></div>
-        <div><p>Overview</p></div>    
+        <?php
+          $newhtmImgThree = file_get_html("https://www.google.com/search?q=".$arrayThree[1]."&tbm=isch");
+          $resultImgSearchThree = $newhtmImgThree -> find('img',1) -> src;
+          echo '<img src="'.$resultImgSearchThree.'" style = "width:100%" width="253" height="395">'; 
+          echo'<div><header4>'.$arrayThree[0].'</header4></div>';
+          echo'<div><p>'.$arrayThree[2].'</p></div>' ; 
+        ?>      
     </div>
 
 
     <div class="mySlides fade">
         <div class="numbertext"> </div>
-        <img src ="" style = "width:100%" width="253" height="395">
-        <div><header4>Title</header4></div>
-        <div><p>Overview</p></div>
+        <?php
+          $newhtmImgFour = file_get_html("https://www.google.com/search?q=".$arrayFour[1]."&tbm=isch");
+          $resultImgSearchFour = $newhtmImgFour -> find('img',1) -> src;
+          echo '<img src="'.$resultImgSearchFour.'" style = "width:100%" width="253" height="395">'; 
+          echo'<div><header4>'.$arrayFour[0].'</header4></div>';
+          echo'<div><p>'.$arrayFour[2].'</p></div>' ; 
+        ?>    
     </div>
     
     <a class="prev" onclick="plusSlidesTopRated(-1)">&#10094;</a>
@@ -99,7 +113,30 @@
     <script type="text/javascript" src="js/slideShow.js"></script>
 </div>
 
-	<button>Refresh</button>
+	<form method="POST"><input type="submit" name="refresh" value="Refresh"></form>
+  <?php  
+  /*
+    if(isset($_POST['refresh'])){
+      $indexFour = $indexFour+4;
+      if($indexFour < sizeof($arrayMovies)){
+       $indexOne = $indexOne +4;
+       $indexTwo = $indexTwo +4;
+       $indexThree = $indexThree +4;
+      }else{
+       $indexOne = 0;
+       $indexTwo = 1;
+       $indexThree = 2;
+       $indexFour = 3;
+      }
+    }
+    else{
+      $indexOne = 0;
+      $indexTwo = 1;
+      $indexThree = 2;
+      $indexFour = 3;
+    }
+    */
+  ?>
 </div>
 
 
