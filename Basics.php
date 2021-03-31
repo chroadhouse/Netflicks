@@ -9,7 +9,7 @@
 </div>
 
 <div class = image1>
-	<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_1080/https://loobitx.com/wp-content/uploads/2018/01/3881185-big-data-wallpaper.jpg" width="1035" height="450"> 
+	<img src="https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1920,h_1080/https://loobitx.com/wp-content/uploads/2018/01/3881185-big-data-wallpaper.jpg" width=100% width="1035" height="450"> 
 </div>
 
 <div class = container1>
