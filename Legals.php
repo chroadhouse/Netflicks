@@ -9,7 +9,7 @@
 </div>
 
 <div class = image1>
-	<img src="https://www.cpomagazine.com/wp-content/uploads/2019/12/proposed-internet-privacy-legislative-framework-backed-by-us-tech-and-marketing-giants-seeks-to-head-off-unfavorable-state-and-f_1500.jpg" width="1035" height="500"> 
+	<img src="https://www.cpomagazine.com/wp-content/uploads/2019/12/proposed-internet-privacy-legislative-framework-backed-by-us-tech-and-marketing-giants-seeks-to-head-off-unfavorable-state-and-f_1500.jpg" width="100%" width="1035" height="500"> 
 </div>
 
 <div class = container1>
