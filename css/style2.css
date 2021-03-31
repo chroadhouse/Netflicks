@@ -3,11 +3,6 @@
 	padding: 100;
 } 
 
-#pic1, #pic2 {
-position: relative;
-top:-31px;
-}
-
 #searchBar {
   width:75%;
   position : relative;
