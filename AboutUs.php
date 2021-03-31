@@ -9,7 +9,7 @@
 </div>
 
 <div class = image1>
-	<img src="https://c1.wallpaperflare.com/preview/551/930/440/contact-us-contact-call-us-phone-communication.jpg" width="1035" height=450> 
+	<img src="https://c1.wallpaperflare.com/preview/551/930/440/contact-us-contact-call-us-phone-communication.jpg" width="100%" width="1035" height=450> 
 </div>
 
 <div class = container1>
