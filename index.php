@@ -155,10 +155,10 @@
 
       <!--<link rel="stylesheet" href="css/behaviour.css" type="text/css"> -->
     <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide2(1)"></span>
+    <span class="dot" onclick="currentSlide2(2)"></span>
+    <span class="dot" onclick="currentSlide2(3)"></span>
+    <span class="dot" onclick="currentSlide2(4)"></span>
    </div>
 </div>
 
@@ -243,10 +243,10 @@
     <a class="next" onclick="plusSlidesChildMovies(1)">&#10095;</a>
 	
     <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide3(1)"></span>
+    <span class="dot" onclick="currentSlide3(2)"></span>
+    <span class="dot" onclick="currentSlide3(3)"></span>
+    <span class="dot" onclick="currentSlide3(4)"></span>
   </div>
 </div>
 
