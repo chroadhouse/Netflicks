@@ -14,7 +14,7 @@
 		}
 		else{
 			//Add a string with all the genre in 
-			$string = "'Action','Adventure','Crime,Mystery','Thriller','Romance','Fantasy','Drama','Animation','Family','Comedy','Horror','War','Science Fiction','Foreign','Music','Western','TV Movie'";
+			$string = "'Action','Adventure','Crime','Mystery','Thriller','Romance','Fantasy','Drama','Animation','Family','Comedy','Horror','War','Science Fiction','Foreign','Music','Western','TV Movie'";
 		}
 		
 
