@@ -404,6 +404,46 @@ html{
   }
 } */
 
+@media only screen and 
+  (max-device-width: 1400px)
+  and (-webkit-min-device-pixel-ratio: 2) { 
+
+  .floatContainer {width : 100%; height: 4%;}
+  .header {width : 30%;  font-size: 30px;}
+  header {width :50%;}
+  .menu {width :50%;}
+  .user {width : 50%;}
+  .homepage {width : 30%;}
+  #searchBar {width :70%; top: 15px;;}
+  #loginButton {width : 30%; top: 10px;}
+  #signUpButton {width : 30%; top: 10px;}
+  #search {width : 30%; top: 20px;}
+  #filterBtn {width : 30%; top: 20px;}
+  #menu {width :50%;}
+  #language {width : 10%;}
+  #homepage {width : 50%;}
+  .rightButtons {width: 30%;}
+  .container { width : 50%};
+  .container1 { width : 30%};
+  .container2 { width : 50%};
+  .container3 { width : 50%};
+  .container4 { width : 50%};
+  .container5 { width : 50%};
+  .container6 { width : 50%};
+  .container7 { width : 50%};
+  .container8 { width : 50%};
+  .button, .button1, .button2 {width : 50%;}
+  .slideshowTopTrending-container {max-width: 200px; left: -260px;}
+  .slideshow-container { max-width:200px;}  
+  .slideshowChildrensMovies-container {max-width: 200px; left: 260px;}
+  body {width : 80%;   margin-top: 95px; height: 1500px;}
+  .footer {width :100%;}
+
+  #homepage {
+    color: rgb(255, 255, 255);
+  }
+}
+
 
 
 
