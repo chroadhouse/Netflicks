@@ -133,7 +133,7 @@ html{
     padding-left: 5ex;
 	background-color: rgb(145, 17, 17);
 	float: left;
-    color: white;
+  color: white;
 }
 
 .container3{
@@ -354,6 +354,35 @@ html{
   animation-duration: 1.5s;
 }
 
+.genreNav{
+  top: -100px;
+  position: relative;
+}
+
+.slideshow-container-genrePage{
+    max-width: 350px;
+    padding-top: 10px;
+    position: relative;
+    margin: auto;
+    height: 200px;
+    top: -70px;
+}
+
+.genreTitle{
+  top: -90px;
+  width: 24.5%;
+  position: relative;
+	margin: 0 auto;
+    text-align: center;
+	margin-top: 18px;
+	border-bottom-color: #a0b71f;
+    border-radius: 1ex;
+	padding-top: 12px;
+	background-color:  rgb(145, 17, 17);
+	float: center;
+    color: white;
+}
+
 @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
@@ -364,6 +393,43 @@ html{
   to {opacity: 1}
 }
 
+input[type=submit] {
+  padding:5px 15px; 
+  background:#ccc; 
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+}
+
+#refresh2{
+  position: relative;
+  top: 410px;
+  right: -470px;
+  background-color:#f44336;
+  color: #f2f2f2;
+}
+
+/*
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+input[type=text]:focus {
+    border-color:#333;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+*/
 
 /*
 @media (max-width:900px) {
