@@ -15,6 +15,7 @@
 		//ini_set('display_startup_errors', 1);
 		//error_reporting(E_ALL);
 	?>
+
 	<div class ="genreNav">
 	<form method="POST">
 		<input type="submit" name="Action" value="Action">
@@ -32,11 +33,11 @@
 		<input type="submit" name="Western" value="Western">
 		<input type="submit" name="Musical" value="Musical">
 		<input type="submit" name="Science_Fiction" value="Science Fiction">
-		<input type="submit" name="Crime" value="Crime">
-		<input type="submit" name="Mystery" value="Mystery">
-		<input type="submit" name="Foreign" value="Foreign">
-		<input type="submit" name="Documentary" value="Documentary">
-		<input type="submit" name="TV_Movies" value="TV Movies">
+		<input type="submit" name="Crime" value="Crime" id = "crime">
+		<input type="submit" name="Mystery" value="Mystery" id = "mystery">
+		<input type="submit" name="Foreign" value="Foreign" id = "foreign">
+		<input type="submit" name="Documentary" value="Documentary" id = "documentary">
+		<input type="submit" name="TV_Movies" value="TV Movies" id = "TvMovies">
 	</form>
 	</div>
 
@@ -54,11 +55,11 @@
     //These can stay as they are for now 
   ?>
 <div>
-	<div class = container2>
+	<div class = genreTitle>
 		<?php echo '<header2> '.$genreTitle.' </header2>' ?><!-- Written with php -->
 	</div>
 
-	<div class="slideshow-container"> <!-- Carousel containing images for the recommended movies -->
+	<div class="slideshow-container-genrePage"> <!-- Carousel containing images for the recommended movies -->
     <!-- width="253" height="395" figure image proportions -->
     <div class="mySlides fade">
         <div class="numbertext"> </div>
@@ -67,9 +68,9 @@
           //index order 0 -> Title. 1 -> Image Path 2 - > Over view
             $newhtmImgOne = file_get_html("https://www.google.com/search?q=".$arrayOne[1]."&tbm=isch");
             $resultImgSearchOne = $newhtmImgOne -> find('img',1) -> src;
-            echo '<img src="'.$resultImgSearchOne.'" style = "width:100%" width="253" height="395">'; 
-            echo'<div><header4>'.$arrayOne[0].'</header4></div>';
-            echo'<div><p>'.$arrayOne[2].'</p></div>' ;
+            echo '<img src="'.$resultImgSearchOne.'" style = "width:100%" width="253" height="395">';
+            echo "<div><header4 style='color:white'> " .$arrayOne[0]." <header4></div>";
+            echo "<div><p style='color:white'> " .$arrayOne[2]." </p></div>";
         ?>
     </div>
     
@@ -80,8 +81,8 @@
           $newhtmImgTwo = file_get_html("https://www.google.com/search?q=".$arrayTwo[1]."&tbm=isch");
           $resultImgSearchTwo = $newhtmImgTwo -> find('img',1) -> src;
           echo '<img src="'.$resultImgSearchTwo.'" style = "width:100%" width="253" height="395">'; 
-          echo'<div><header4>'.$arrayTwo[0].'</header4></div>';
-          echo'<div><p>'.$arrayTwo[2].'</p></div>' ; 
+          echo "<div><header4 style='color:white'> " .$arrayTwo[0]." <header4></div>";
+          echo "<div><p style='color:white'> " .$arrayTwo[2]." </p></div>";
         ?>    
         </div>
     
@@ -91,8 +92,8 @@
           $newhtmImgThree = file_get_html("https://www.google.com/search?q=".$arrayThree[1]."&tbm=isch");
           $resultImgSearchThree = $newhtmImgThree -> find('img',1) -> src;
           echo '<img src="'.$resultImgSearchThree.'" style = "width:100%" width="253" height="395">'; 
-          echo'<div><header4>'.$arrayThree[0].'</header4></div>';
-          echo'<div><p>'.$arrayThree[2].'</p></div>' ; 
+          echo "<div><header4 style='color:white'> " .$arrayThree[0]." <header4></div>";
+          echo "<div><p style='color:white'> " .$arrayThree[2]." </p></div>";
         ?>      
     </div>
 
@@ -103,8 +104,8 @@
           $newhtmImgFour = file_get_html("https://www.google.com/search?q=".$arrayFour[1]."&tbm=isch");
           $resultImgSearchFour = $newhtmImgFour -> find('img',1) -> src;
           echo '<img src="'.$resultImgSearchFour.'" style = "width:100%" width="253" height="395">'; 
-          echo'<div><header4>'.$arrayFour[0].'</header4></div>';
-          echo'<div><p>'.$arrayFour[2].'</p></div>' ; 
+          echo "<div><header4 style='color:white'> " .$arrayFour[0]." <header4></div>";
+          echo "<div><p style='color:white'> " .$arrayFour[2]." </p></div>";
         ?>    
     </div>
     
@@ -113,7 +114,11 @@
     <script type="text/javascript" src="js/slideShow.js"></script>
 </div>
 
-	<form method="POST"><input type="submit" name="refresh" value="Refresh"></form>
+<br></br>
+
+	<form method="POST"><input type="submit" name="refresh" value="Refresh" id="refresh2"></form>
+
+<br></br>
   <?php  
   /*
     if(isset($_POST['refresh'])){
@@ -138,7 +143,18 @@
     */
   ?>
 </div>
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 
 <?php include ('include/footer.php') ?>
 </body>
