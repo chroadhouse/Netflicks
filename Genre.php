@@ -2,18 +2,18 @@
 <?php include ('include/GenreFunction.php')?>
 
 
-	<br> </br>
 
---><?php
+
+<?php
     //populateGenre('Action');
     $arrayOne = array();
     $arrayTwo = array();
     $arrayThree = array();
     $arrayFour = array();
 
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
+		//ini_set('display_errors', 1);
+		//ini_set('display_startup_errors', 1);
+		//error_reporting(E_ALL);
 	?>
 	<div class ="genreNav">
 	<form method="POST">
@@ -42,7 +42,7 @@
 
  <br> </br>
   <?php 
-      $indexOne = 0;
+    $indexOne = 0;
     $indexTwo = 1;
     $indexThree = 2;
     $indexFour = 3;
