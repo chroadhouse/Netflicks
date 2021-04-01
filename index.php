@@ -17,6 +17,10 @@
 		<header6> TOP RATED </header6>
 	</div>
 	<div class = container4>
+		<?php
+			//If logged in true - Make title the genre var
+			//else make it children movies 
+		?>
 		<header7> CHILDREN MOVIES </header7>
 	</div>
 </div>	
@@ -262,83 +266,175 @@
 
 <div class="slideshowChildrensMovies-container"> <!-- Carousel containing images for the recommended movies -->
 	<?php // Add the image
-		//Logged true - Childrens would be default 
-		//Another 
+	$loggedIn = false;
+	// This line can be readded later 
+	if(isset($_POST['username'],$_POST['password'])){
+		//$userGenre;
+		$userGenreID;
+		$conn = OpenCon();
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		//Need to add the decrypted method here
+		//Change the sql here to check the username and password 
+		$sql2 = "SELECT COUNT(*), user.GenreID FROM user WHERE user.UserID = 2";
+		$logInResult = $conn -> query($sql2);
+		global $userGenreID;
+		if(mysqli_num_rows($logInResult) > 0){
+			while ($row = mysqli_fetch_array($logInResult)){
+				if($row[0]>0){
+					$loggedIn = true;
+					$userGenreID = $row[1];
+				}
+				break;
+			}
+		}
+	} // IMPORTATNT 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 		$arrayInfo = array();
 		$arrayMovies=array();
-		childrenSQL();
-		function childrenSQL(){
-			$conn = OpenCon();
-	       	$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM ((movie inner join genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genremovie.genreID = genre.genreID) WHERE (genre.genre_name = 'Animation') && (movie.Movie_Poster_Path!='null')";
-	 
-	       	$query = $conn -> query($sql);
-			$arrayInfo = array();
-			$arrayMovies=array();
-			global $arrayMovies;
-			$i = 0;
-			if (mysqli_num_rows($query) >0)
-			{
-				while ($row = mysqli_fetch_array($query))
-				{ 
-					$arrayInfo[0] = $row[0];  //title
-					$arrayInfo[1] = $row[1];  // image
-					$arrayMovies[$i] = $arrayInfo;
-					$i = $i+1;
+		if($loggedIn==false){
+			function childrenSQL(){
+				$conn = OpenCon();
+		       	$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM ((movie inner join genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genremovie.genreID = genre.genreID) WHERE (genre.genre_name = 'Animation') && (movie.Movie_Poster_Path!='null')";
+		 
+		       	$query = $conn -> query($sql);
+				$arrayInfo = array();
+				$arrayMovies=array();
+				global $arrayMovies;
+				$i = 0;
+				if (mysqli_num_rows($query) >0)
+				{
+					while ($row = mysqli_fetch_array($query))
+					{ 
+						$arrayInfo[0] = $row[0];  //title
+						$arrayInfo[1] = $row[1];  // image
+						$arrayMovies[$i] = $arrayInfo;
+						$i = $i+1;
+					}
+
 				}
-
-			}
-			//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
-			$size1 = rand(0,sizeof ($arrayMovies));
-			$size2 = rand(0,sizeof ($arrayMovies));
-			$size3 = rand(0,sizeof ($arrayMovies));
-			$size4 = rand(0,sizeof ($arrayMovies));
+				//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+				$size1 = rand(0,sizeof ($arrayMovies));
+				$size2 = rand(0,sizeof ($arrayMovies));
+				$size3 = rand(0,sizeof ($arrayMovies));
+				$size4 = rand(0,sizeof ($arrayMovies));
 
 
-			$movie1 = $arrayMovies[$size1]; 
-			$movie2 = $arrayMovies[$size2]; 
-			$movie3 = $arrayMovies[$size3];
-			$movie4 = $arrayMovies[$size4]; 
+				$movie1 = $arrayMovies[$size1]; 
+				$movie2 = $arrayMovies[$size2]; 
+				$movie3 = $arrayMovies[$size3];
+				$movie4 = $arrayMovies[$size4]; 
 
-			global $title1;
-			global $title2;
-			global $title3;
-			global $title4;
-			$title1 = $movie1[0];
-			$title2 = $movie2[0];
-			$title3 = $movie3[0];
-			$title4 = $movie4[0];
-			if(strlen($movie1[1]) == 32 && strlen($movie2[1]) == 32 && strlen($movie3[1]) == 32 && strlen($movie4[1]) == 32){
-		        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
-		        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
-		        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
-		        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
-		        try{
-			        $result_image_search1 = $newhtml1 -> find('img',1); // Index one for the image 
-			        $result_image_search2 = $newhtml2 -> find('img',1); // Index one for the image 
-			        $result_image_search3 = $newhtml3 -> find('img',1); // Index one for the image 
-			        $result_image_search4 = $newhtml4 -> find('img',1); // Index one for the image
-			    }catch(Exception $e){
-			    	childrenSQL();
-			    }
-			    if($result_image_search1 == null || $result_image_search2 == null ||$result_image_search3 == null ||$result_image_search4 == null){
-			    	childrenSQL();
-			    }else{
-		    		global $image_search1;
-	        		global $image_search2;
-	        		global $image_search3;
-	        		global $image_search4;
-	        		$image_search1 = $result_image_search1 -> src;
-	        		$image_search2 = $result_image_search2 -> src;
-	        		$image_search3 = $result_image_search3 -> src;
-	        		$image_search4 = $result_image_search4 -> src;
-			    }
-	        }else{
-	        	childrenSQL();
-	        }   
-        }
+				global $title1;
+				global $title2;
+				global $title3;
+				global $title4;
+				$title1 = $movie1[0];
+				$title2 = $movie2[0];
+				$title3 = $movie3[0];
+				$title4 = $movie4[0];
+				if(strlen($movie1[1]) == 32 && strlen($movie2[1]) == 32 && strlen($movie3[1]) == 32 && strlen($movie4[1]) == 32){
+			        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
+			        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
+			        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
+			        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
+			        try{
+				        $result_image_search1 = $newhtml1 -> find('img',1); // Index one for the image 
+				        $result_image_search2 = $newhtml2 -> find('img',1); // Index one for the image 
+				        $result_image_search3 = $newhtml3 -> find('img',1); // Index one for the image 
+				        $result_image_search4 = $newhtml4 -> find('img',1); // Index one for the image
+				    }catch(Exception $e){
+				    	childrenSQL();
+				    }
+				    if($result_image_search1 == null || $result_image_search2 == null ||$result_image_search3 == null ||$result_image_search4 == null){
+				    	childrenSQL();
+				    }else{
+			    		global $image_search1;
+		        		global $image_search2;
+		        		global $image_search3;
+		        		global $image_search4;
+		        		$image_search1 = $result_image_search1 -> src;
+		        		$image_search2 = $result_image_search2 -> src;
+		        		$image_search3 = $result_image_search3 -> src;
+		        		$image_search4 = $result_image_search4 -> src;
+				    }
+		        }else{
+		        	childrenSQL();
+		        }   
+	        }
+	        childrenSQL();
+	    }
+	    else{
+	        function loggedInSQL($value){
+	        	$conn = OpenCon();// Opened conneciton
+	        	$sql3 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path from ((movie INNER JOIN genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genre.GenreID = genremovie.GenreID) WHERE genre.GenreID = '$value'";
+       	$query3 = $conn -> query($sql3);
+				$arrayInfo = array();
+				$arrayMovies=array();
+				global $arrayMovies;
+				$i = 0;
+				if (mysqli_num_rows($query3) >0)
+				{
+					while ($row = mysqli_fetch_array($query3))
+					{ 
+						$arrayInfo[0] = $row[0];  //title
+						$arrayInfo[1] = $row[1];  // image
+						$arrayMovies[$i] = $arrayInfo;
+						$i = $i+1;
+					}
 
-        function loggedInSQL(){
-        	
+				}
+				//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+				$size1 = rand(0,sizeof ($arrayMovies));
+				$size2 = rand(0,sizeof ($arrayMovies));
+				$size3 = rand(0,sizeof ($arrayMovies));
+				$size4 = rand(0,sizeof ($arrayMovies));
+
+				$movie1 = $arrayMovies[$size1]; 
+				$movie2 = $arrayMovies[$size2]; 
+				$movie3 = $arrayMovies[$size3];
+				$movie4 = $arrayMovies[$size4]; 
+
+				global $title1;
+				global $title2;
+				global $title3;
+				global $title4;
+				$title1 = $movie1[0];
+				$title2 = $movie2[0];
+				$title3 = $movie3[0];
+				$title4 = $movie4[0];
+				if(strlen($movie1[1]) == 32 && strlen($movie2[1]) == 32 && strlen($movie3[1]) == 32 && strlen($movie4[1]) == 32){
+			        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
+			        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
+			        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
+			        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
+			        try{
+				        $result_image_search1 = $newhtml1 -> find('img',1); // Index one for the image 
+				        $result_image_search2 = $newhtml2 -> find('img',1); // Index one for the image 
+				        $result_image_search3 = $newhtml3 -> find('img',1); // Index one for the image 
+				        $result_image_search4 = $newhtml4 -> find('img',1); // Index one for the image
+				    }catch(Exception $e){
+				    	loggedInSQL($value);
+				    }
+				    if($result_image_search1 == null || $result_image_search2 == null ||$result_image_search3 == null ||$result_image_search4 == null){
+				    	loggedInSQL();
+				    }else{
+			    		global $image_search1;
+		        		global $image_search2;
+		        		global $image_search3;
+		        		global $image_search4;
+		        		$image_search1 = $result_image_search1 -> src;
+		        		$image_search2 = $result_image_search2 -> src;
+		        		$image_search3 = $result_image_search3 -> src;
+		        		$image_search4 = $result_image_search4 -> src;
+				    }
+		        }else{
+		        	loggedInSQL($value);
+		        } 
+	        }
+	        loggedInSQL($userGenreID);
         }  
     ?>
 
