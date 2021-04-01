@@ -4,10 +4,10 @@ The project aims to create a website that uses a movie database and provides ser
 
 ## Technologies 
 This will be done using HTML, CSS, JavaScript, PHP and MySQL. These are the languages that will be used to create this site. 
-HTML - Setting the webiste out and creating the components that will be used 
-CSS - Styling the HTML to create a professional evniroment 
-JavaScript - Front end validation on any search terms 
-PHP - All actions in back end such as sanatizing data, encrypt/decrypt data, sorting data and running queries
+HTML - Setting the webiste out and creating the components that will be used. 
+CSS - Styling the HTML to create a professional evniroment. 
+JavaScript - Front end validation on any search terms. 
+PHP - All actions in back end such as sanatizing data, encrypt/decrypt data, sorting data and running queries.
 MySQl - Used to access the database and retreve data to be used on the site.
 
 ## Setup
