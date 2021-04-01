@@ -66,12 +66,12 @@
         $newhtml3Rating = file_get_html("https://www.google.com/search?q=".$movie3Rating[1]."&tbm=isch");       
         $newhtml4Rating = file_get_html("https://www.google.com/search?q=".$movie4Rating[1]."&tbm=isch");  
 
-        $result_image_search1Rating = $newhtml1Rating -> find('img',1) -> src; // Index one for the image 
+
+        
+        $result_image_search1Rating = $newhtml1Rating -> find('img',1) -> src; // Index one for the image
         $result_image_search2Rating = $newhtml2Rating -> find('img',1) -> src; // Index one for the image 
         $result_image_search3Rating = $newhtml3Rating -> find('img',1) -> src; // Index one for the image 
         $result_image_search4Rating = $newhtml4Rating -> find('img',1) -> src; // Index one for the image  
-
-        //result image echo the error if src is null. 
 
     ?>
     <div class="mySlides fade">
@@ -114,40 +114,81 @@
 <!--Top trending slideshow -->
 
 <div class="slideshowTopTrending-container"> <!-- Carousel containing images for the recommended movies -->
-     <?php // Add the image 
-       $sql = "SELECT movie.Movie_Poster_Path FROM movie WHERE movie.MovieID = '10000'";
-        $query = $conn -> query($sql); 
-        //while($row = sql_fetch_array($query)){ //Take the row out }
-        $test = "/mdfFmAd1dXPa02GvZTnGDPWLut6.jpg"; // Get from the query 
-        //These two lines are imp
-        $newhtml = file_get_html("https://www.google.com/search?q=".$test."&tbm=isch");        
-        $result_image_search = $newhtml -> find('img',1) -> src; // Index one for the image 
-       // echo '<img src="'.$result_image_search.'">';
+    <?php // Add the image 
+       $sql2 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE movie.Movie_Original_Title in ('Jurassic Park','Young Einstein','Mona Lisa','Toy Story','Toy Story 2','Brother Bear','Saint','Blueberry','Honey','Joan of Arc','December 7th','Saints and Soldiers','Bloodwork','Desperation','See No Evil','Avatar 2','Mary Shelley','Mobile Homes','Alien: Covenant','Smurfs: The Lost Village','Justice League','Pirates of the Caribbean: Dead Men Tell No Tales','Amityville: The Awakening')";
+ 
+       	$query2 = $conn -> query($sql2);
+		$arrayInfoTrending = array();
+		$arrayMoviesTrending = array();
+		$k = 0;
+		if (mysqli_num_rows($query2) >0)
+		{
+			while ($row2 = mysqli_fetch_array($query2))
+			{ 
+				$arrayInfoTrending[0] = $row2[0];  //title
+				$arrayInfoTrending[1] = $row2[1];  // image
+				$arrayMoviesTrending[$k] = $arrayInfoTrending;
+				$k = $k+1;
+			}
+
+		}
+
+		
+		//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+
+		$size1Trending = rand(0,sizeof ($arrayMoviesTrending));
+		$size2Trending = rand(0,sizeof ($arrayMoviesTrending));
+		$size3Trending = rand(0,sizeof ($arrayMoviesTrending));
+		$size4Trending = rand(0,sizeof ($arrayMoviesTrending));
+
+
+		$movie1Trending = $arrayMoviesTrending[$size1Trending]; 
+		$movie2Trending = $arrayMoviesTrending[$size2Trending]; 
+		$movie3Trending = $arrayMoviesTrending[$size3Trending];
+		$movie4Trending = $arrayMoviesTrending[$size4Trending]; 
+
+		$title1Trending = $movie1Trending[0];
+		$title2Trending = $movie2Trending[0];
+		$title3Trending = $movie3Trending[0];
+		$title4Trending = $movie4Trending[0];
+		
+        $newhtml1Trending = file_get_html("https://www.google.com/search?q=".$movie1Trending[1]."&tbm=isch");   
+        $newhtml2Trending = file_get_html("https://www.google.com/search?q=".$movie2Trending[1]."&tbm=isch");  
+        $newhtml3Trending = file_get_html("https://www.google.com/search?q=".$movie3Trending[1]."&tbm=isch");       
+        $newhtml4Trending = file_get_html("https://www.google.com/search?q=".$movie4Trending[1]."&tbm=isch");  
+
+
+        
+        $result_image_search1Trending = $newhtml1Trending -> find('img',1) -> src; // Index one for the image
+        $result_image_search2Trending = $newhtml2Trending -> find('img',1) -> src; // Index one for the image 
+        $result_image_search3Trending = $newhtml3Trending -> find('img',1) -> src; // Index one for the image 
+        $result_image_search4Trending = $newhtml4Trending -> find('img',1) -> src; // Index one for the image  
+
     ?>
     <div class="mySlides2 fade">
         <div class="numbertext2"> </div>
-        <?php echo'<img src="'.$result_image_search.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> Jurassic Park </div>
+        <?php echo'<img src="'.$result_image_search1Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title1Trending ?></div>
     </div>
     
 
     <div class="mySlides2 fade">
         <div class="numbertext2"></div>
-         <img id ="pic2"src="https://upload.wikimedia.org/wikipedia/en/e/e1/MissionImpossiblePoster.jpg" style = "width:100%" width="253" height="395">   
-        <div class="text"> Mission Impossible </div>
+        <?php echo'<img src="'.$result_image_search2Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title2Trending ?></div>
         </div>
 
 
     <div class="mySlides2 fade">
         <div class="numbertext2"> </div>
-        <img src="https://upload.wikimedia.org/wikipedia/en/c/c2/Back_to_the_Future_Part_II.jpg" style = "width:100%" width="253" height="395">
-        <div class="text"> Back to the Future </div>
+        <?php echo'<img src="'.$result_image_search3Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title3Trending ?></div>
     </div>
 
     <div class="mySlides2 fade">
         <div class="numbertext2"> </div>
-        <img src ="https://lumiere-a.akamaihd.net/v1/images/star-wars-the-rise-of-skywalker-theatrical-poster-1000_ebc74357.jpeg?region=0%2C0%2C891%2C1372" style = "width:100%" width="253" height="395">
-        <div class="text"> Star Wars </div>
+       <?php echo'<img src="'.$result_image_search4Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title4Trending ?></div>
     </div>
 
     <a class="prev" onclick="plusSlidesTopTrending(-1)">&#10094;</a>
