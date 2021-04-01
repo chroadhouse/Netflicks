@@ -47,7 +47,6 @@
 		}
 
 
-
 		if ($actor!="" && $director == "")
 		{
 			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Overview,movie.Movie_Release_date, movie.Movie_Runtime, movie.Movie_Original_Language, movie.Movie_Budget, movie.Movie_Revenue, movie.Rating, movie.MovieID,movie.Movie_Poster_Path FROM 
@@ -94,7 +93,6 @@
 					$image = $row[9];
 					$newhtml = file_get_html("https://www.google.com/search?q=".$image."&tbm=isch");
 					$result_image_search = $newhtml -> find('img',1) -> src; 
-			
 					echo'<img src="'.$result_image_search.'" style = width="500" height="500">';
 
 					echo "<h1 style='color:white ; font-size:50px; text-align:center'>" .$row[0]."</h1>";
