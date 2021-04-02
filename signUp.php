@@ -87,7 +87,7 @@
 						
 					if ($exist==false)
 					{						
-						insertUser($conn, $firstName, $lastName, $age, $username, $password, $email, $genre, $language);
+						$crypted_pass = insertUser($conn, $firstName, $lastName, $age, $username, $password, $email, $genre, $language);
 						header("location: index.php");
 						exit;
 					}

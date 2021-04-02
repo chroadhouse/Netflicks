@@ -45,7 +45,7 @@
 			<option value="Horror">Horror</option> 
 			<option value="History">History</option>
 			<option value="War">War</option>
-			<option value="Science Fiction">Science Fiction"</option>
+			<option value="Science Fiction">Science Fiction</option>
 			<option value="Foreign">Foreign</option>
 			<option value="Music">Music</option>
 			<option value="Western">Western</option>

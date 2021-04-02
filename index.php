@@ -1,4 +1,5 @@
 <?php include ('include/header.php')?>
+<?php include ('include/decrypt.php')?>
 
 <!--<br> </br>-->
 <body>
@@ -18,10 +19,11 @@
 	</div>
 	<div class = container4>
 		<?php
+
 			//If logged in true - Make title the genre var
 			//else make it children movies 
 		?>
-		<header7> CHILDREN MOVIES </header7>
+		
 	</div>
 </div>	
 
@@ -276,14 +278,26 @@
 		$password = $_POST['password'];
 		//Need to add the decrypted method here
 		//Change the sql here to check the username and password 
-		$sql2 = "SELECT COUNT(*), user.GenreID FROM user WHERE user.UserID = 2";
+		$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
 		$logInResult = $conn -> query($sql2);
 		global $userGenreID;
 		if(mysqli_num_rows($logInResult) > 0){
 			while ($row = mysqli_fetch_array($logInResult)){
-				if($row[0]>0){
+				$passwordDecrypted = decrypt($conn, $row[4]);
+				if($password == $passwordDecrypted){
 					$loggedIn = true;
-					$userGenreID = $row[1];
+					$userGenreID = $row[6];
+					/*global $userGenreName;
+					$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
+					$genreResult = $conn -> query ($sqlGenreName);
+					while ($row = mysqli_fetch_array($genreResult)) {
+						$userGenreName = $row[0];
+					}*/
+					echo "<p style='color:white'> Logged in </p>";
+				}
+				else 
+				{
+					echo "<p style='color:white'> Logged unsuccessfull </p>";
 				}
 				break;
 			}
@@ -370,7 +384,7 @@
 	        function loggedInSQL($value){
 	        	$conn = OpenCon();// Opened conneciton
 	        	$sql3 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path from ((movie INNER JOIN genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genre.GenreID = genremovie.GenreID) WHERE genre.GenreID = '$value'";
-       	$query3 = $conn -> query($sql3);
+       			$query3 = $conn -> query($sql3);
 				$arrayInfo = array();
 				$arrayMovies=array();
 				global $arrayMovies;
