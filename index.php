@@ -2,38 +2,9 @@
 <?php include ('include/decrypt.php')?>
 
 <!--<br> </br>-->
-<body>
-<div class = floatContainer>
-	<div class = container8>
-		<header8> RECOMMENDED FOR YOU
- </header8>
-</div>
-</div>
-
-<div class = floatContainer>
-	<div class = container2>
-		<header5> TOP TRENDING </header5> <!-- Headers for redirection to the top trending movies -->
-	</div>
-	<div class = container3>
-		<header6> TOP RATED </header6>
-	</div>
-	<div class = container4>
-		<?php
-
-			//If logged in true - Make title the genre var
-			//else make it children movies 
-		?>
-		
-	</div>
-</div>	
-
-<!--original slideshow -->
-<div class="slideshow-container"> <!-- Carousel containing images for the recommended movies -->
-	<?php // Add the image 
-		$arrayInfoRating = array();
-		$arrayMoviesRating = array();
-		ratingSQL();
-		function ratingSQL(){
+<?php
+	//Put all the php methods here 
+	function ratingSQL(){
 			$conn = OpenCon();
 	    	$sql1 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE (movie.Rating = '5') && (movie.Movie_Poster_Path!='null')";
 	 
@@ -106,55 +77,9 @@
 		    else{
 		    	ratingSQL(0);
 		    }
-	    }
-        
-        
-    ?>
-    <div class="mySlides fade">
-        <div class="numbertext"> </div>
-        <?php echo'<img src="'.$image_search1Rating.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title1Rating ?></div>
-    </div>
-    
+	}
 
-    <div class="mySlides fade">
-        <div class="numbertext"> </div>
-          <?php echo'<img src="'.$image_search2Rating.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title2Rating ?></div>
-        </div>
-    
-    <div class="mySlides fade">
-        <div class="numbertext"> </div>
-        <?php echo'<img src="'.$image_search3Rating.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title3Rating ?></div>
-    </div>
-
-
-    <div class="mySlides fade">
-        <div class="numbertext"> </div>
-        <?php echo'<img src="'.$image_search4Rating.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title4Rating ?></div>
-    </div>
-    
-    <a class="prev" onclick="plusSlidesTopRated(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlidesTopRated(1)">&#10095;</a>
-	
-    <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
- </div>
-</div>
-
-<!--Top trending slideshow -->
-
-<div class="slideshowTopTrending-container"> <!-- Carousel containing images for the recommended movies -->
-    <?php // Add the image 
-    $arrayInfoTrending = array();
-	$arrayMoviesTrending = array();
-	trendingSQL();
-    function trendingSQL(){
+	function trendingSQL(){
     	$conn = OpenCon();
        	$sql2 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE movie.Movie_Original_Title in ('Jurassic Park','Young Einstein','Mona Lisa','Toy Story','Toy Story 2','Brother Bear','Saint','Blueberry','Honey','Joan of Arc','December 7th','Saints and Soldiers','Bloodwork','Desperation','See No Evil','Avatar 2','Mary Shelley','Mobile Homes','Alien: Covenant','Smurfs: The Lost Village','Justice League','Pirates of the Caribbean: Dead Men Tell No Tales','Amityville: The Awakening')";
  
@@ -225,91 +150,76 @@
 	    	trendingSQL();
 	    }
     }
-    ?>
-    <div class="mySlides2 fade">
-        <div class="numbertext2"> </div>
-        <?php echo'<img src="'.$image_search1Trending.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title1Trending ?></div>
-    </div>
-    
 
-    <div class="mySlides2 fade">
-        <div class="numbertext2"></div>
-        <?php echo'<img src="'.$image_search2Trending.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title2Trending ?></div>
-        </div>
-
-
-    <div class="mySlides2 fade">
-        <div class="numbertext2"> </div>
-        <?php echo'<img src="'.$image_search3Trending.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title3Trending ?></div>
-    </div>
-
-    <div class="mySlides2 fade">
-        <div class="numbertext2"> </div>
-       <?php echo'<img src="'.$image_search4Trending.'" style = "width:100%" width="253" height="395">' ?>
-        <div class="text"> <?php echo $title4Trending ?></div>
-    </div>
-
-    <a class="prev" onclick="plusSlidesTopTrending(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlidesTopTrending(1)">&#10095;</a>
-
-      <!--<link rel="stylesheet" href="css/behaviour.css" type="text/css"> -->
-    <div style="text-align:center">
-    <span class="dot" onclick="currentSlide2(1)"></span>
-    <span class="dot" onclick="currentSlide2(2)"></span>
-    <span class="dot" onclick="currentSlide2(3)"></span>
-    <span class="dot" onclick="currentSlide2(4)"></span>
-   </div>
-</div>
-
-<!--Childrens Movies slideshow -->
-
-<div class="slideshowChildrensMovies-container"> <!-- Carousel containing images for the recommended movies -->
-	<?php // Add the image
-	$loggedIn = false;
-	// This line can be readded later 
-	if(isset($_POST['username'],$_POST['password'])){
-		//$userGenre;
-		$userGenreID;
-		$conn = OpenCon();
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		//Need to add the decrypted method here
-		//Change the sql here to check the username and password 
-		$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
-		$logInResult = $conn -> query($sql2);
-		global $userGenreID;
-		if(mysqli_num_rows($logInResult) > 0){
-			while ($row = mysqli_fetch_array($logInResult)){
-				$passwordDecrypted = decrypt($conn, $row[4]);
-				if($password == $passwordDecrypted){
-					$loggedIn = true;
-					$userGenreID = $row[6];
-					/*global $userGenreName;
-					$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
-					$genreResult = $conn -> query ($sqlGenreName);
-					while ($row = mysqli_fetch_array($genreResult)) {
-						$userGenreName = $row[0];
-					}*/
-					echo "<p style='color:white'> Logged in </p>";
-				}
-				else 
-				{
-					echo "<p style='color:white'> Logged unsuccessfull </p>";
-				}
-				break;
-			}
-		}
-	} // IMPORTATNT 
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+    function loggedInSQL($value){
+    	$conn = OpenCon();// Opened conneciton
+    	$sql3 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path from ((movie INNER JOIN genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genre.GenreID = genremovie.GenreID) WHERE genre.GenreID = '$value'";
+			$query3 = $conn -> query($sql3);
 		$arrayInfo = array();
 		$arrayMovies=array();
-		if($loggedIn==false){
-			function childrenSQL(){
+		global $arrayMovies;
+		$i = 0;
+		if (mysqli_num_rows($query3) >0)
+		{
+			while ($row = mysqli_fetch_array($query3))
+			{ 
+				$arrayInfo[0] = $row[0];  //title
+				$arrayInfo[1] = $row[1];  // image
+				$arrayMovies[$i] = $arrayInfo;
+				$i = $i+1;
+			}
+
+		}
+		//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+		$size1 = rand(0,sizeof ($arrayMovies));
+		$size2 = rand(0,sizeof ($arrayMovies));
+		$size3 = rand(0,sizeof ($arrayMovies));
+		$size4 = rand(0,sizeof ($arrayMovies));
+
+		$movie1 = $arrayMovies[$size1]; 
+		$movie2 = $arrayMovies[$size2]; 
+		$movie3 = $arrayMovies[$size3];
+		$movie4 = $arrayMovies[$size4]; 
+
+		global $title1;
+		global $title2;
+		global $title3;
+		global $title4;
+		$title1 = $movie1[0];
+		$title2 = $movie2[0];
+		$title3 = $movie3[0];
+		$title4 = $movie4[0];
+		if(strlen($movie1[1]) == 32 && strlen($movie2[1]) == 32 && strlen($movie3[1]) == 32 && strlen($movie4[1]) == 32){
+	        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
+	        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
+	        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
+	        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
+	        try{
+		        $result_image_search1 = $newhtml1 -> find('img',1); // Index one for the image 
+		        $result_image_search2 = $newhtml2 -> find('img',1); // Index one for the image 
+		        $result_image_search3 = $newhtml3 -> find('img',1); // Index one for the image 
+		        $result_image_search4 = $newhtml4 -> find('img',1); // Index one for the image
+		    }catch(Exception $e){
+		    	loggedInSQL($value);
+		    }
+		    if($result_image_search1 == null || $result_image_search2 == null ||$result_image_search3 == null ||$result_image_search4 == null){
+		    	loggedInSQL();
+		    }else{
+	    		global $image_search1;
+        		global $image_search2;
+        		global $image_search3;
+        		global $image_search4;
+        		$image_search1 = $result_image_search1 -> src;
+        		$image_search2 = $result_image_search2 -> src;
+        		$image_search3 = $result_image_search3 -> src;
+        		$image_search4 = $result_image_search4 -> src;
+		    }
+        }else{
+        	loggedInSQL($value);
+        } 
+    }
+
+    function childrenSQL(){
 				$conn = OpenCon();
 		       	$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM ((movie inner join genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genremovie.genreID = genre.genreID) WHERE (genre.genre_name = 'Animation') && (movie.Movie_Poster_Path!='null')";
 		 
@@ -378,78 +288,172 @@
 		        	childrenSQL();
 		        }   
 	        }
-	        childrenSQL();
-	    }
-	    else{
-	        function loggedInSQL($value){
-	        	$conn = OpenCon();// Opened conneciton
-	        	$sql3 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path from ((movie INNER JOIN genremovie on movie.MovieID = genremovie.MovieID) inner join genre on genre.GenreID = genremovie.GenreID) WHERE genre.GenreID = '$value'";
-       			$query3 = $conn -> query($sql3);
-				$arrayInfo = array();
-				$arrayMovies=array();
-				global $arrayMovies;
-				$i = 0;
-				if (mysqli_num_rows($query3) >0)
-				{
-					while ($row = mysqli_fetch_array($query3))
-					{ 
-						$arrayInfo[0] = $row[0];  //title
-						$arrayInfo[1] = $row[1];  // image
-						$arrayMovies[$i] = $arrayInfo;
-						$i = $i+1;
+
+?>
+<body>
+<div class = floatContainer>
+	<div class = container8>
+		<header8> RECOMMENDED FOR YOU
+ </header8>
+</div>
+</div>
+
+<div class = floatContainer>
+	<div class = container2>
+		<header5> TOP TRENDING </header5> <!-- Headers for redirection to the top trending movies -->
+	</div>
+	<div class = container3>
+		<header6> TOP RATED </header6>
+	</div>
+	<div class = container4>
+		<?php
+
+			//If logged in true - Make title the genre var
+			//else make it children movies 
+		$loggedIn = false;
+	// This line can be readded later 
+		if(isset($_POST['username'],$_POST['password'])){
+			//$userGenre;
+			$userGenreID;
+			$conn = OpenCon();
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
+			$logInResult = $conn -> query($sql2);
+			global $userGenreID;
+			if(mysqli_num_rows($logInResult) > 0){
+				while ($row = mysqli_fetch_array($logInResult)){
+					$passwordDecrypted = decrypt($conn, $row[4]);
+					if($password == $passwordDecrypted){
+						$loggedIn = true;
+						$userGenreID = $row[6];
+						global $userGenreName;
+						$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
+						$genreResult = $conn -> query ($sqlGenreName);
+						while ($row = mysqli_fetch_array($genreResult)) {
+							$userGenreName = $row[0];
+							break;
+						}
+						echo '<header5>"'.$userGenreName.'"</header5>';
 					}
-
+					else 
+					{
+						echo "<header5> Childrens Movies </header5>";
+					}
+					break;
 				}
-				//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
-				$size1 = rand(0,sizeof ($arrayMovies));
-				$size2 = rand(0,sizeof ($arrayMovies));
-				$size3 = rand(0,sizeof ($arrayMovies));
-				$size4 = rand(0,sizeof ($arrayMovies));
+			}
+		} // IMPORTATNT 
+		else{
+			echo "<header5> Childrens Movies </header5>";
+		}
+		?>
+		
+	</div>
+</div>	
 
-				$movie1 = $arrayMovies[$size1]; 
-				$movie2 = $arrayMovies[$size2]; 
-				$movie3 = $arrayMovies[$size3];
-				$movie4 = $arrayMovies[$size4]; 
+<!--original slideshow -->
+<div class="slideshow-container"> <!-- Carousel containing images for the recommended movies -->
+	<?php // Add the image 
+		$arrayInfoRating = array();
+		$arrayMoviesRating = array();
+		ratingSQL(); 
+    ?>
+    <div class="mySlides fade">
+        <div class="numbertext"> </div>
+        <?php echo'<img src="'.$image_search1Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title1Rating ?></div>
+    </div>
+    
 
-				global $title1;
-				global $title2;
-				global $title3;
-				global $title4;
-				$title1 = $movie1[0];
-				$title2 = $movie2[0];
-				$title3 = $movie3[0];
-				$title4 = $movie4[0];
-				if(strlen($movie1[1]) == 32 && strlen($movie2[1]) == 32 && strlen($movie3[1]) == 32 && strlen($movie4[1]) == 32){
-			        $newhtml1 = file_get_html("https://www.google.com/search?q=".$movie1[1]."&tbm=isch");   
-			        $newhtml2 = file_get_html("https://www.google.com/search?q=".$movie2[1]."&tbm=isch");  
-			        $newhtml3 = file_get_html("https://www.google.com/search?q=".$movie3[1]."&tbm=isch");       
-			        $newhtml4 = file_get_html("https://www.google.com/search?q=".$movie4[1]."&tbm=isch");  
-			        try{
-				        $result_image_search1 = $newhtml1 -> find('img',1); // Index one for the image 
-				        $result_image_search2 = $newhtml2 -> find('img',1); // Index one for the image 
-				        $result_image_search3 = $newhtml3 -> find('img',1); // Index one for the image 
-				        $result_image_search4 = $newhtml4 -> find('img',1); // Index one for the image
-				    }catch(Exception $e){
-				    	loggedInSQL($value);
-				    }
-				    if($result_image_search1 == null || $result_image_search2 == null ||$result_image_search3 == null ||$result_image_search4 == null){
-				    	loggedInSQL();
-				    }else{
-			    		global $image_search1;
-		        		global $image_search2;
-		        		global $image_search3;
-		        		global $image_search4;
-		        		$image_search1 = $result_image_search1 -> src;
-		        		$image_search2 = $result_image_search2 -> src;
-		        		$image_search3 = $result_image_search3 -> src;
-		        		$image_search4 = $result_image_search4 -> src;
-				    }
-		        }else{
-		        	loggedInSQL($value);
-		        } 
-	        }
-	        loggedInSQL($userGenreID);
-        }  
+    <div class="mySlides fade">
+        <div class="numbertext"> </div>
+          <?php echo'<img src="'.$image_search2Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title2Rating ?></div>
+        </div>
+    
+    <div class="mySlides fade">
+        <div class="numbertext"> </div>
+        <?php echo'<img src="'.$image_search3Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title3Rating ?></div>
+    </div>
+
+
+    <div class="mySlides fade">
+        <div class="numbertext"> </div>
+        <?php echo'<img src="'.$image_search4Rating.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title4Rating ?></div>
+    </div>
+    
+    <a class="prev" onclick="plusSlidesTopRated(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlidesTopRated(1)">&#10095;</a>
+	
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+ </div>
+</div>
+
+<!--Top trending slideshow -->
+
+<div class="slideshowTopTrending-container"> <!-- Carousel containing images for the recommended movies -->
+    <?php // Add the image 
+    $arrayInfoTrending = array();
+	$arrayMoviesTrending = array();
+	trendingSQL();
+    ?>
+    <div class="mySlides2 fade">
+        <div class="numbertext2"> </div>
+        <?php echo'<img src="'.$image_search1Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title1Trending ?></div>
+    </div>
+    
+
+    <div class="mySlides2 fade">
+        <div class="numbertext2"></div>
+        <?php echo'<img src="'.$image_search2Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title2Trending ?></div>
+        </div>
+
+
+    <div class="mySlides2 fade">
+        <div class="numbertext2"> </div>
+        <?php echo'<img src="'.$image_search3Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title3Trending ?></div>
+    </div>
+
+    <div class="mySlides2 fade">
+        <div class="numbertext2"> </div>
+       <?php echo'<img src="'.$image_search4Trending.'" style = "width:100%" width="253" height="395">' ?>
+        <div class="text"> <?php echo $title4Trending ?></div>
+    </div>
+
+    <a class="prev" onclick="plusSlidesTopTrending(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlidesTopTrending(1)">&#10095;</a>
+
+      <!--<link rel="stylesheet" href="css/behaviour.css" type="text/css"> -->
+    <div style="text-align:center">
+    <span class="dot" onclick="currentSlide2(1)"></span>
+    <span class="dot" onclick="currentSlide2(2)"></span>
+    <span class="dot" onclick="currentSlide2(3)"></span>
+    <span class="dot" onclick="currentSlide2(4)"></span>
+   </div>
+</div>
+
+<!--Childrens Movies slideshow -->
+
+<div class="slideshowChildrensMovies-container"> <!-- Carousel containing images for the recommended movies -->
+	<?php // Add the image
+	$arrayInfo = array();
+	$arrayMovies=array();
+	if($loggedIn==false){
+        childrenSQL();
+    }
+    else{
+        loggedInSQL($userGenreID);
+    }  
     ?>
 
     <div class="mySlides3 fade">
