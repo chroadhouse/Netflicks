@@ -246,17 +246,31 @@ html{
     bottom: 400px;
 }
 
+
 .slideshowTopTrending-container{
     max-width: 350px;
     padding-top: 10px;
     padding-right: 10px;
     position: relative;
     margin: auto;
-    left: -430px;
-    /*top: -410px;*/  
+    left: -430px; 
     height: 200px;
     bottom: 200px;
 }
+
+/*
+#slideshowTopTrending-container{
+  max-width: 350px;
+  top: 100px;
+  padding-top: 10px;
+  padding-right: 10px;
+  position: relative;
+  margin: auto;
+  left: -430px; 
+  height: 200px;
+  bottom: 200px;
+}
+*/
 
 .slideshow-container{
     max-width: 350px;
@@ -470,8 +484,9 @@ input[type=submit] {
   }
 } */
 
+/* mobile devices including tablets*/
 @media only screen and 
-  (max-device-width: 1400px)
+  (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 2) { 
 
   .floatContainer {width : 100%; height: 4%;}
@@ -510,6 +525,87 @@ input[type=submit] {
   }
 }
 
+/*Desktop media Queries up to 15.6inch*/
+@media only screen and 
+  (min-device-width: 1025px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -290px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 290px;}
+}
 
+@media only screen and 
+  (min-device-width: 1125px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -310px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 310px;}
+}
 
+@media only screen and 
+  (min-device-width: 1190px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -330px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 330px;}
+}
 
+@media only screen and 
+  (min-device-width: 1250px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -350px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 350px;}
+}
+
+/*15.6 inch screen laptop size*/
+@media only screen and 
+  (min-device-width: 1350px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -370px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 370px;}
+}
+
+@media only screen and 
+  (min-device-width: 1370px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -390px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 390px;}
+}
+
+@media only screen and 
+  (min-device-width: 1425px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -410px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 410px;}
+}
+
+@media only screen and 
+  (min-device-width: 1500px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -430px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 440px;}
+}
+
+/*17 inch laptop*/ 
+@media only screen and 
+  (min-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 250px; left: -450px;}
+  .slideshow-container { max-width:250px;}  
+  .slideshowChildrensMovies-container {max-width: 250px; left: 470px;}
+}
+
+/*Minimisation of the screen*/
+
+@media only screen and 
+  (max-device-width: 249px)
+  and (-webkit-min-device-pixel-ratio: 2){
+  .slideshowTopTrending-container {max-width: 150px; left: -250px;}
+  .slideshow-container { max-width:150px;}  
+  .slideshowChildrensMovies-container {max-width: 150px; left: 250px;}
+}
