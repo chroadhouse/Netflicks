@@ -334,18 +334,18 @@
 							$userGenreName = $row[0];
 							break;
 						}
-						echo '<header5>"'.$userGenreName.'"</header5>';
+						echo '<header5>'.strtoupper($userGenreName).'</header5>';
 					}
 					else 
 					{
-						echo "<header5> Childrens Movies </header5>";
+						echo "<header5> CHILDREN MOVIES </header5>";
 					}
 					break;
 				}
 			}
 		} // IMPORTATNT 
 		else{
-			echo "<header5> Childrens Movies </header5>";
+			echo "<header5> CHILDREN MOVIES </header5>";
 		}
 		?>
 		

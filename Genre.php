@@ -10,11 +10,19 @@
     $arrayTwo = array();
     $arrayThree = array();
     $arrayFour = array();
+    if(isset($_POST['genreButton'])){
 
-		//ini_set('display_errors', 1);
-		//ini_set('display_startup_errors', 1);
-		//error_reporting(E_ALL);
-	?>
+      $genreTitle = "Action";
+
+      populateGenre('Action');
+
+    }
+
+    if(isset($_POST['refresh']))
+    {
+      populateGenre($_POST['currentGenre']);
+    }
+?>
 
 	<div class ="genreNav">
 	<form method="POST">
@@ -43,10 +51,10 @@
 
  <br> </br>
   <?php 
-    $indexOne = 0;
-    $indexTwo = 1;
-    $indexThree = 2;
-    $indexFour = 3;
+    $indexOne = rand (0 , sizeof($arrayMovies) );
+    $indexTwo = rand (0 , sizeof($arrayMovies) );
+    $indexThree = rand (0 , sizeof($arrayMovies) );
+    $indexFour = rand (0 , sizeof($arrayMovies) );
     //test Arrays 
     $arrayOne = $arrayMovies[$indexOne];
     $arrayTwo = $arrayMovies[$indexTwo];
@@ -116,32 +124,17 @@
 
 <br></br>
 
-	<form method="POST"><input type="submit" name="refresh" value="Refresh" id="refresh2"></form>
+	
+	<?php
+		echo '<form method="POST">
+			<input type="submit" name="refresh" value="Refresh" id="refresh2">
+			<input type = "hidden" value = "'.$arrayOne[3].'" name = "currentGenre"/>
+			</form>';
+		
+	?>
 
 <br></br>
-  <?php  
-  /*
-    if(isset($_POST['refresh'])){
-      $indexFour = $indexFour+4;
-      if($indexFour < sizeof($arrayMovies)){
-       $indexOne = $indexOne +4;
-       $indexTwo = $indexTwo +4;
-       $indexThree = $indexThree +4;
-      }else{
-       $indexOne = 0;
-       $indexTwo = 1;
-       $indexThree = 2;
-       $indexFour = 3;
-      }
-    }
-    else{
-      $indexOne = 0;
-      $indexTwo = 1;
-      $indexThree = 2;
-      $indexFour = 3;
-    }
-    */
-  ?>
+
 </div>
 <br></br>
 <br></br>
