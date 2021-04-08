@@ -102,6 +102,7 @@
 		//The link underneath is how to store the data in an array - php uses arrays like a dictionary so that should help us
 		//If you can get the query working and the data into the array then I can mess around with the rest tomorrow
 		//https://stackoverflow.com/questions/19039226/how-to-store-mysql-fetch-array-result-into-different-variables
+
 		function populateGenre($genre){
 			$conn = OpenCon();
 			global $arrayMovies;
@@ -119,12 +120,11 @@
 					$arrayInfo[0] = $row[0];  //title
 					$arrayInfo[1] = $row[1];  // image
 					$arrayInfo[2] = $row[2]; //overview
+					$arrayInfo[3] = $genre;
 
 					$arrayMovies[$i] = $arrayInfo;
 					$i = $i+1;
 				}
-				echo'The query has run';
-				echo sizeof($arrayMovies);
 			}
 
 			//MAYBE THE ARRAY NEED TO BE RETURNED 
@@ -135,9 +135,8 @@
 		    	}
 		    	echo "<br />";
 			}*/
+
 		};
-
-
 	// $array1 = { title poster overvie , title poster overview , , , , ,  }
 
 ?>

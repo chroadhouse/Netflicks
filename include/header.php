@@ -27,62 +27,7 @@
 					<optgroup label = Arabic>	</optgroup>				
 	</select>
 
-<div class = Menu>
-	<label for="Menu">MENU:</label> <!-- drop down for Menu and access to other webpages -->
-	<select name="Menu" id="Menu">
-		<optgroup label="Genre">
-			<option value="Action">Action</option> 
-			<option value="Adventure">Adventure</option> 
-			<option value="Crime">Crime</option>
-			<option value="Mystery">Mystery</option>
-			<option value="Thriller">Thriller</option>
-			<option value="Romance">Romance</option>
-			<option value="Fantasy">Fantasy</option> 
-			<option value="Drama">Drama</option> 
-			<option value="Animations">Animations</option>
-			<option value="Family">Family</option> 
-			<option value="Comedy">Comedy</option>
-			<option value="Horror">Horror</option> 
-			<option value="History">History</option>
-			<option value="War">War</option>
-			<option value="Science Fiction">Science Fiction</option>
-			<option value="Foreign">Foreign</option>
-			<option value="Music">Music</option>
-			<option value="Western">Western</option>
-			<option value="Documentary">Documentary</option>
-			<option value="TV Movie">TV Movie</option>
 
-		</optgroup>
-		<optgroup label="Childrens"> 
-			<option value="Animations">Animations</option> 
-			<option value="Family Movies">Action</option> 
-		</optgroup>
-		<optgroup label="Popular"> 
-		<option value="Top Trending">Top Trending</option> 
-			<option value="Top Rated">Top Rated</option> 
-			<option value="Upcoming Movies">Upcoming Movies</option> 
-		</optgroup>
-		<optgroup label="Account"> 
-			<option value="Log In">Log In</option> 
-			<option value="Sign Up">Sign Up</option> 
-		</optgroup>
-		<optgroup label="Basics"> 
-			<option value="Account Usage">Account Usage</option> 
-			<option value="Support">Support</option> 
-		</optgroup>
-		<optgroup label="About Us"> 
-			<option value="Developers">Developers</option> 
-			<option value="Email">Email</option> 
-			<option value="Contact Us">Contact Us</option> 
-		</optgroup>
-		<optgroup label="Legal"> 
-			<option value="Privacy">Privacy</option> 
-			<option value="Health & Safety">Health & Safety</option> 
-			<option value="Conditions of Use">Conditions of Use</option> 
-			<option value="Cookies">Cookies</option>
-		</optgroup>
-	</select>
-</div>
 
 <div class = header>
 	<header> <a id = "homepage" href="index.php"> NETFLICKS </a> </header> <!-- Main title for website -->
@@ -97,6 +42,9 @@
 
 	<button id ="loginButton" type="button1">Log In</button> <!-- Button for account Log In -->
 	<button id ="signUpButton"type="button2">Sign Up</button> <!-- Button for account Sign Up -->
+	<form action="genre.php" method="POST">
+        <input type="submit" name="genreButton" value="Genre"/>
+    </form>
 
 	<script>
 	    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
