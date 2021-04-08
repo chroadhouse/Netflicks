@@ -1,5 +1,5 @@
 <?php include ('include/header.php')?>
-<?php include ('include/decrypt.php')?>
+
 
 <!--<br> </br>-->
 <?php
@@ -307,7 +307,7 @@
 	</div>
 	<div class = container4>
 		<?php
-
+/*	
 			//If logged in true - Make title the genre var
 			//else make it children movies 
 		$loggedIn = false;
@@ -346,9 +346,9 @@
 		} // IMPORTATNT 
 		else{
 			echo "<header5> CHILDREN MOVIES </header5>";
-		}
+		}*/
+		echo "<header5> CHILDREN MOVIES </header5>";
 		?>
-		
 	</div>
 </div>	
 
