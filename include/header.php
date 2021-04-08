@@ -26,8 +26,9 @@
 					<optgroup label = Chinese>	</optgroup>
 					<optgroup label = Arabic>	</optgroup>				
 	</select>
-
-
+<form action="genre.php" method="POST">
+        <input type="submit" name="genreButton" value="Genre"/>
+</form>
 
 <div class = header>
 	<header> <a id = "homepage" href="index.php"> NETFLICKS </a> </header> <!-- Main title for website -->
@@ -42,9 +43,9 @@
 
 	<button id ="loginButton" type="button1">Log In</button> <!-- Button for account Log In -->
 	<button id ="signUpButton"type="button2">Sign Up</button> <!-- Button for account Sign Up -->
-	<form action="genre.php" method="POST">
+	<!--<form action="genre.php" method="POST">
         <input type="submit" name="genreButton" value="Genre"/>
-    </form>
+    </form>-->
 
 	<script>
 	    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
