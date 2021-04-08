@@ -7,6 +7,7 @@
 
 		<?php include 'connection.php' ?>
 		<?php include 'simple_html_dom.php' // Write about this in implemntation?>
+		<?php include ('include/decrypt.php')?>
 		<link rel="stylesheet" href="css/style2.css"> 
 		<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
 	    <meta charset="utf-8"> 
@@ -41,20 +42,75 @@
 
 <div class = "rightButtons">
 
-	<button id ="loginButton" type="button1">Log In</button> <!-- Button for account Log In -->
-	<button id ="signUpButton"type="button2">Sign Up</button> <!-- Button for account Sign Up -->
+	<?php 
+		$loggedIn = false;
+		if(isset($_POST['username'],$_POST['password']))
+		{ 
+			
+			$userGenreID;
+			$conn = OpenCon();
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
+			$logInResult = $conn -> query($sql2);
+			global $userGenreID;
+			if(mysqli_num_rows($logInResult) > 0)
+			{
+				while ($row = mysqli_fetch_array($logInResult)){
+					$passwordDecrypted = decrypt($conn, $row[4]);
+					if($password == $passwordDecrypted){
+						$loggedIn = true;
+						
+						echo '<button type="button3" id ="signOutButton">SignOut</button>';
+						echo "Hello ".$_POST['username'];
+						$userGenreID = $row[6];
+						global $userGenreName;
+						$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
+						$genreResult = $conn -> query ($sqlGenreName);
+						while ($row = mysqli_fetch_array($genreResult)) {
+							$userGenreName = $row[0];
+							break;
+						}
+						//echo '<header5>'.strtoupper($userGenreName).'</header5>';
+					}
+				}
+			
+			} // IMPORTATNT 
+			else 
+			{
+				echo '<button id ="loginButton" type="button1" >Log In</button> ';
+				echo '<button id ="signUpButton"type="button2">Sign Up</button>';
+				//echo "<header5> CHILDREN MOVIES </header5>";			
+			}
+		}
+		else
+		{
+			echo '<button id ="loginButton" type="button1" >Log In</button> ';
+			echo '<button id ="signUpButton"type="button2">Sign Up</button>';
+			//echo "<header5> CHILDREN MOVIES </header5>";
+		}
+		
+	?>
+	
 	<!--<form action="genre.php" method="POST">
         <input type="submit" name="genreButton" value="Genre"/>
     </form>-->
 
 	<script>
 	    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
+	    document.getElementById("signOutButton").addEventListener("click", function() {
+  		location.href = "index.php";
+		});
 
 	    function initialiseWebPage() {
 	    const loginPageBtn = document.getElementById("loginButton");
 	    const signUpPageBtn = document.getElementById("signUpButton");
+	  
 	    loginPageBtn.addEventListener("click", redirectToUrl);
 	    signUpButton.addEventListener("click", redirectToSignUpUrl);
+
+
+	 
 
 	    function redirectToUrl() {
 	        location.href = "login.php";
