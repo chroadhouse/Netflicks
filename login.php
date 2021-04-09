@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<?php include 'include/loginCheck.php'; ?>
 		<meta charset="utf-8">
 		<title>Login</title>
 		<link rel="stylesheet" href="css/loginStyle.css" type="text/css">
@@ -10,7 +11,7 @@
 			<h1>Login</h1>
 			<!--Make a link to the PHP below-->
 			<!-- Give it the action -->
-			<form action="index.php" method="post">
+			<form method="post">
 				<label for="username"></label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
 				<label for="password"></label>

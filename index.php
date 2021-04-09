@@ -307,47 +307,15 @@
 	</div>
 	<div class = container4>
 		<?php
-/*	
-			//If logged in true - Make title the genre var
-			//else make it children movies 
-		$loggedIn = false;
-	// This line can be readded later 
-		if(isset($_POST['username'],$_POST['password'])){
-			//$userGenre;
-			$userGenreID;
-			$conn = OpenCon();
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
-			$logInResult = $conn -> query($sql2);
-			global $userGenreID;
-			if(mysqli_num_rows($logInResult) > 0){
-				while ($row = mysqli_fetch_array($logInResult)){
-					$passwordDecrypted = decrypt($conn, $row[4]);
-					if($password == $passwordDecrypted){
-						$loggedIn = true;
-						$userGenreID = $row[6];
-						global $userGenreName;
-						$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
-						$genreResult = $conn -> query ($sqlGenreName);
-						while ($row = mysqli_fetch_array($genreResult)) {
-							$userGenreName = $row[0];
-							break;
-						}
-						echo '<header5>'.strtoupper($userGenreName).'</header5>';
-					}
-					else 
-					{
-						echo "<header5> CHILDREN MOVIES </header5>";
-					}
-					break;
-				}
-			}
-		} // IMPORTATNT 
-		else{
+		if($_SESSION['loggedIn']==true){
+			echo '<header5>'.strtoupper($_SESSION['userGenreName']).'</header5>';
+			loggedInSQL($_SESSION['GenreID']);
+
+		}
+		else if($_SESSION['loggedIn']==false){
 			echo "<header5> CHILDREN MOVIES </header5>";
-		}*/
-		echo "<header5> CHILDREN MOVIES </header5>";
+			childrenSQL();
+		}
 		?>
 	</div>
 </div>	
@@ -448,12 +416,12 @@
 	<?php // Add the image
 	$arrayInfo = array();
 	$arrayMovies=array();
-	if($loggedIn==false){
-        childrenSQL();
-    }
-    else{
-        loggedInSQL($userGenreID);
-    }  
+	//if($loggedIn==false){
+    //    childrenSQL();
+    //}
+    //else{
+    //    loggedInSQL($userGenreID);
+    //}  
     ?>
 
     <div class="mySlides3 fade">

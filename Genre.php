@@ -13,13 +13,13 @@
     if(isset($_POST['genreButton'])){
 
       $genreTitle = "Action";
-
       populateGenre('Action');
 
     }
 
     if(isset($_POST['refresh']))
     {
+      $genreTitle = $_POST['genreTitle'];
       populateGenre($_POST['currentGenre']);
     }
 ?>
@@ -129,6 +129,7 @@
 		echo '<form method="POST">
 			<input type="submit" name="refresh" value="Refresh" id="refresh2">
 			<input type = "hidden" value = "'.$arrayOne[3].'" name = "currentGenre"/>
+      <input type = "hidden" value = '.$genreTitle.' name = "genreTitle"/>
 			</form>';
 		
 	?>

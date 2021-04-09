@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-	 
+	 <?php  session_start(); ?>
 	<html lang="en"> 
 	<title>Homepage</title>
 	
@@ -43,52 +43,22 @@
 <div class = "rightButtons">
 
 	<?php 
-		$loggedIn = false;
-		if(isset($_POST['username'],$_POST['password']))
-		{ 
-			
-			$userGenreID;
-			$conn = OpenCon();
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			$sql2 = "SELECT * FROM user WHERE user.UserUserName = '$username' ";
-			$logInResult = $conn -> query($sql2);
-			global $userGenreID;
-			if(mysqli_num_rows($logInResult) > 0)
-			{
-				while ($row = mysqli_fetch_array($logInResult)){
-					$passwordDecrypted = decrypt($conn, $row[4]);
-					if($password == $passwordDecrypted){
-						$loggedIn = true;
-						
-						echo '<button type="button3" id ="signOutButton">SignOut</button>';
-						echo "Hello ".$_POST['username'];
-						$userGenreID = $row[6];
-						global $userGenreName;
-						$sqlGenreName = "SELECT genre.Genre_Name from genre where genre.GenreID = '$userGenreID'";
-						$genreResult = $conn -> query ($sqlGenreName);
-						while ($row = mysqli_fetch_array($genreResult)) {
-							$userGenreName = $row[0];
-							break;
-						}
-						//echo '<header5>'.strtoupper($userGenreName).'</header5>';
-					}
-				}
-			
-			} // IMPORTATNT 
-			else 
-			{
-				echo '<button id ="loginButton" type="button1" >Log In</button> ';
-				echo '<button id ="signUpButton"type="button2">Sign Up</button>';
-				//echo "<header5> CHILDREN MOVIES </header5>";			
-			}
+		if(isset($_POST['signOutButton'])){
+			$_SESSION['loggedIn'] = false;
 		}
-		else
-		{
+
+
+		if($_SESSION['loggedIn']==true){
+			echo '
+			<form method = "post">
+				<input type="submit" id ="signOutButton" value = "Sign Out" name ="signOutButton"/>
+			</form>';
+		}else if($_SESSION['loggedIn']==false){
 			echo '<button id ="loginButton" type="button1" >Log In</button> ';
 			echo '<button id ="signUpButton"type="button2">Sign Up</button>';
-			//echo "<header5> CHILDREN MOVIES </header5>";
+			//echo 'This is the log in';
 		}
+
 		
 	?>
 	
