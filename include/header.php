@@ -4,7 +4,7 @@
 	<title>Homepage</title>
 	
 	<head> 
-
+		<?php error_reporting(E_ERROR | E_PARSE);?>
 		<?php include 'connection.php' ?>
 		<?php include 'simple_html_dom.php' // Write about this in implemntation?>
 		<?php include ('include/decrypt.php')?>
