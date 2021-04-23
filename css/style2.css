@@ -61,6 +61,8 @@ body {
     margin-right: 100px;
     margin-top:0px;
     margin-bottom:50px;
+    width: 190vmin;
+    height: 190vmin;
 }
 
 html{
