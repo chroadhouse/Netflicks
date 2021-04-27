@@ -1,5 +1,5 @@
 <?php
-
+//Sets up the connection to the database
 function OpenCon()
 {
 	$dbhost = "localhost";
@@ -17,6 +17,7 @@ function OpenCon()
 	return $conn;
 }
 
+//Used to close the connection to the database
 function CloseCon ($conn)
 {
 	$conn -> close();

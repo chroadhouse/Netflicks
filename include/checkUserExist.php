@@ -1,12 +1,8 @@
 <?php 
-
-
-	
+	//Takes the connection and username as parameters 
 	function checkExist($conn,$username)
 	{
-		
-	
-		$exist=false;
+		$exist=false; // Sets boolean to false 
 		
 		$sql = "SELECT * FROM user";
 		$result = $conn -> query($sql);
@@ -21,10 +17,10 @@
 
 				if($usernameExisting==$username)
 				{
-					$exist=true;
+					$exist=true; // Sets true if the username is in the database 
 				}
 			}
 		}
-		return $exist;
+		return $exist; // Returns the boolean 
 	}
 ?>

@@ -1,18 +1,10 @@
 <?php
-		//These first 3 lines 
-		//ini_set('display_errors', 1);
-		//ini_set('display_startup_errors', 1);
-		//error_reporting(E_ALL);
-		//$testArray =array();
 		$conn = OpenCon();
 		$genreTitle = 'Title';
 		$arrayMovies = array();
-		/*if(!$conn){
-			die("Connection Failed: ". mysql_connect_error());
-		}else{
-			echo "Connection is working";
-		}*/
-		//Selection block to find the correct genre
+		
+		//If statement finds out what genre has been selected 
+		//Calls the function and sets the title variable 
 		if (isset($_POST['Action'])){
 			$genreTitle = 'Action';
 			populateGenre('Action');
@@ -93,25 +85,16 @@
 			$genreTitle = 'TV Movies';
 			populateGenre('TV Movie');
 		}
-
-
-		//So the method gets the data of genres. We then want to store them in an array - So we can use the data on the genre slide show
-		//Because this is an include then it should be global in terms of scope. In the genre page we are going to have a slide show with an image
-		//The title and the overview. For now we just need to be able to get that data in there and then when the user presses one of the other buttons
-		//It should recall the method and pass the correct genre. The query works. i've tested it myself - it's line 89 which is broken
-		//The link underneath is how to store the data in an array - php uses arrays like a dictionary so that should help us
-		//If you can get the query working and the data into the array then I can mess around with the rest tomorrow
-		//https://stackoverflow.com/questions/19039226/how-to-store-mysql-fetch-array-result-into-different-variables
-
+		//Takes the genre as a parameter 
 		function populateGenre($genre){
 			$conn = OpenCon();
 			global $arrayMovies;
-			// Write the sql Query 
-			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path, movie.Movie_Overview FROM ((movie inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID) where genre.genre_name = '$genre'"; // The SQL is working 
-			
+			// Sql query finds films with this genre 
+			$sql = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path, movie.Movie_Overview FROM ((movie inner join genremovie on movie.movieID = genremovie.movieID) inner join genre on genre.genreID = genremovie.genreID) where genre.genre_name = '$genre'";  
+			//Query is run here 
 			$query = $conn -> query($sql);
-			 $arrayInfo = array();
-			// $arrayMovies=array();
+			$arrayInfo = array();
+			
 			$i = 0;
 			if (mysqli_num_rows($query) >0)
 			{
@@ -126,17 +109,7 @@
 					$i = $i+1;
 				}
 			}
-
-			//MAYBE THE ARRAY NEED TO BE RETURNED 
-			//PRINT DATA
-			/*foreach($arrayMovies as $array) {
-		    	foreach($array as $value) {
-		        	echo $value . ",";
-		    	}
-		    	echo "<br />";
-			}*/
-
 		};
-	// $array1 = { title poster overvie , title poster overview , , , , ,  }
+	
 
 ?>
