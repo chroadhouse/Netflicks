@@ -4,9 +4,9 @@
 	<title>Homepage</title>
 	
 	<head> 
-		<?php error_reporting(E_ERROR | E_PARSE);?>
+		<?php //error_reporting(E_ERROR | E_PARSE);?>
 		<?php include 'connection.php' ?>
-		<?php include 'simple_html_dom.php' // Write about this in implemntation?>
+		<?php include 'simple_html_dom.php' ?>
 		<?php include ('include/decrypt.php')?>
 		<link rel="stylesheet" href="css/style2.css"> 
 		<link rel="stylesheet" type="text/css" href="css/modalStyle.css"> 
@@ -43,11 +43,12 @@
 <div class = "rightButtons">
 
 	<?php 
+		//Checks to see if the signout button is pressed and changes the value 
 		if(isset($_POST['signOutButton'])){
 			$_SESSION['loggedIn'] = false;
 		}
 
-
+		//This changes the buttons the user sees from sign out to login and signup 
 		if($_SESSION['loggedIn']==true){
 			echo '
 			<form method = "post">
@@ -61,12 +62,9 @@
 
 		
 	?>
-	
-	<!--<form action="genre.php" method="POST">
-        <input type="submit" name="genreButton" value="Genre"/>
-    </form>-->
 
 	<script>
+		//Checks if loaded and will then load the index file 
 	    document.addEventListener("DOMContentLoaded",  initialiseWebPage);
 	    document.getElementById("signOutButton").addEventListener("click", function() {
   		location.href = "index.php";
@@ -81,11 +79,11 @@
 
 
 	 
-
+	    //Sets the page to the login
 	    function redirectToUrl() {
 	        location.href = "login.php";
-	        }
-
+	    }
+	    //Sets the page to the sign up 
 	    function redirectToSignUpUrl() {
 	        location.href = "SignUp.php";
 	    }
@@ -141,8 +139,7 @@
 		<label><input type="checkbox" name="genre[]" id="Western" value="Western">Western</label>
 		<label><input type="checkbox" name="genre[]" id="Documentary" value="Documentary">Documentary</label>
 		<label><input type="checkbox" name="genre[]" id="TV Movie" value="TV Movie">TV Movie</label>
-		</div>
-<!--<input type="text" placeholder="Enter Username" name="uname" required> -->
+		</div>>
 	<div>
 	  	<label for="Year"><b>Release year: </b><input type="text" id="Year" name="Year"><br></label><br>
   		<label for="Budget"><b>Budget between:</b> <input type="text" id="Budget1" name="Budget1"> - <input type="text" id="Budget2" name="Budget2"></label><br>

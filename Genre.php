@@ -5,18 +5,18 @@
 
 
 <?php
-    //populateGenre('Action');
+    //Arrays declared
     $arrayOne = array();
     $arrayTwo = array();
     $arrayThree = array();
     $arrayFour = array();
+    //Makes sure on first visit to page action appears 
     if(isset($_POST['genreButton'])){
-
       $genreTitle = "Action";
       populateGenre('Action');
 
     }
-
+    //When the page has been reloaded from the refresh button 
     if(isset($_POST['refresh']))
     {
       $genreTitle = $_POST['genreTitle'];
@@ -51,16 +51,18 @@
 
  <br> </br>
   <?php 
+  	//indexs are created from a random number from the array length 
     $indexOne = rand (0 , sizeof($arrayMovies) );
     $indexTwo = rand (0 , sizeof($arrayMovies) );
     $indexThree = rand (0 , sizeof($arrayMovies) );
     $indexFour = rand (0 , sizeof($arrayMovies) );
-    //test Arrays 
+    
+    //Array data is set 
     $arrayOne = $arrayMovies[$indexOne];
     $arrayTwo = $arrayMovies[$indexTwo];
     $arrayThree = $arrayMovies[$indexThree];
     $arrayFour = $arrayMovies[$indexFour];
-    //These can stay as they are for now 
+    
   ?>
 <div>
 	<div class = genreTitle>
@@ -68,13 +70,14 @@
 	</div>
 
 	<div class="slideshow-container-genrePage"> <!-- Carousel containing images for the recommended movies -->
-    <!-- width="253" height="395" figure image proportions -->
+
     <div class="mySlides fade">
         <div class="numbertext"> </div>
         <?php
-          //Get the first image from array one 
-          //index order 0 -> Title. 1 -> Image Path 2 - > Over view
-            $newhtmImgOne = file_get_html("https://www.google.com/search?q=".$arrayOne[1]."&tbm=isch");
+          	//Get the first image from array one 
+          	//index order 0 -> Title. 1 -> Image Path 2 - > Over view
+        	//Image, title and overview are added to the slide show 
+    		$newhtmImgOne = file_get_html("https://www.google.com/search?q=".$arrayOne[1]."&tbm=isch");
             $resultImgSearchOne = $newhtmImgOne -> find('img',1) -> src;
             echo '<img src="'.$resultImgSearchOne.'" style = "width:100%" width="253" height="395">';
             echo "<div><header4 style='color:white'> " .$arrayOne[0]." <header4></div>";
@@ -126,12 +129,12 @@
 
 	
 	<?php
+		//Creates the refresh button 
 		echo '<form method="POST">
 			<input type="submit" name="refresh" value="Refresh" id="refresh2">
 			<input type = "hidden" value = "'.$arrayOne[3].'" name = "currentGenre"/>
       <input type = "hidden" value = '.$genreTitle.' name = "genreTitle"/>
-			</form>';
-		
+			</form>';	
 	?>
 
 <br></br>

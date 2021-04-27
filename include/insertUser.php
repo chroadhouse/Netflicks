@@ -1,4 +1,5 @@
-<?php 
+<?php
+	//Function inserts a user and takes the data as a parameter from the signup page 
 	function insertUser($conn, $firstName, $lastName, $age, $username, $password, $email, $genre, $language)
 	{
 		$sql = "SELECT COUNT(*) FROM user";
@@ -9,13 +10,13 @@
 
 		$fullname = $firstName . " " . $lastName;
 
-
+		//Gets the genre id from the genre table 
 		$sql = "SELECT GenreID FROM genre WHERE Genre_Name = '$genre'";
 		$query = $conn -> query($sql);
 		$result = $query -> fetch_row();
 		$genreID = $result[0];
 		
-
+		//Gets the language from the language table 
 		$sql = "SELECT LanguageID FROM originallanguage WHERE Language = '$language'";
 		$query = $conn -> query($sql);
 		$result = $query -> fetch_row();

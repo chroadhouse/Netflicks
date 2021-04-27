@@ -1,17 +1,17 @@
 <?php include ('include/header.php')?>
 
-
-<!--<br> </br>-->
 <?php
-	//Put all the php methods here 
+	//Functions for sanatising the image data from thehtml dom parser 
 	function ratingSQL(){
+			//Connection and sql are created and run 
 			$conn = OpenCon();
 	    	$sql1 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE (movie.Rating = '5') && (movie.Movie_Poster_Path!='null')";
 	 
 	       	$query1 = $conn -> query($sql1);
-			
+			//Set to global to make sure it can be accessed outside the method 
 			global $arrayMoviesRating;
 			$j = 0;
+			//Runs through and adds the data from the query to array 
 			if (mysqli_num_rows($query1) >0)
 			{
 				while ($row1 = mysqli_fetch_array($query1))
@@ -24,19 +24,18 @@
 
 			}
 		
-			//Array movies has got all the animations movie. Each element is an array which has in pos0 title and pos1 img
+			//Gets index 
 			$size1Rating = rand(0,sizeof ($arrayMoviesRating));
 			$size2Rating = rand(0,sizeof ($arrayMoviesRating));
 			$size3Rating = rand(0,sizeof ($arrayMoviesRating));
 			$size4Rating = rand(0,sizeof ($arrayMoviesRating));
-			//Make them unique by wrapping in fucntion and having a condition to pass. Else run 
-			//We need to make sure that they are not the same
+			//Sets the data 
 			$movie1Rating = $arrayMoviesRating[$size1Rating]; 
 			$movie2Rating = $arrayMoviesRating[$size2Rating]; 
 			$movie3Rating = $arrayMoviesRating[$size3Rating];
 			$movie4Rating = $arrayMoviesRating[$size4Rating]; 
 
-			//echo $movie2Rating; 
+			//Title is then set 
 			global $title1Rating;
 			global $title2Rating;
 			global $title3Rating;
@@ -45,8 +44,8 @@
 			$title2Rating = $movie2Rating[0];
 			$title3Rating = $movie3Rating[0];
 			$title4Rating = $movie4Rating[0];
-			///fsrZN0cU6JciLkV0mNbCWRYjjl1.jpg
-			//$movie1Rating[1] = '/fsrZN0cU6JciLkV0mNbCWRYjjl1.jpg';
+			
+			//Check the size of the string to make sure they are 32 in length 
 			if(strlen($movie1Rating[1]) == 32 && strlen($movie2Rating[1]) == 32 && strlen($movie3Rating[1]) == 32 && strlen($movie4Rating[1]) == 32){
 		        $newhtml1Rating = file_get_html("https://www.google.com/search?q=".$movie1Rating[1]."&tbm=isch");   
 		        $newhtml2Rating = file_get_html("https://www.google.com/search?q=".$movie2Rating[1]."&tbm=isch");  
@@ -68,6 +67,7 @@
 		        	global $image_search2Rating;
 		        	global $image_search3Rating;
 		        	global $image_search4Rating;
+		        	//Set's the source 
 		        	$image_search1Rating = $result_image_search1Rating -> src;
 		        	$image_search2Rating = $result_image_search2Rating -> src;
 		        	$image_search3Rating = $result_image_search3Rating -> src; 
@@ -78,7 +78,7 @@
 		    	ratingSQL(0);
 		    }
 	}
-
+	//The same function for the trending slideshow 
 	function trendingSQL(){
     	$conn = OpenCon();
        	$sql2 = "SELECT movie.Movie_Original_Title, movie.Movie_Poster_Path FROM movie  WHERE movie.Movie_Original_Title in ('Jurassic Park','Young Einstein','Mona Lisa','Toy Story','Toy Story 2','Brother Bear','Saint','Blueberry','Honey','Joan of Arc','December 7th','Saints and Soldiers','Bloodwork','Desperation','See No Evil','Avatar 2','Mary Shelley','Mobile Homes','Alien: Covenant','Smurfs: The Lost Village','Justice League','Pirates of the Caribbean: Dead Men Tell No Tales','Amityville: The Awakening')";
@@ -416,12 +416,6 @@
 	<?php // Add the image
 	$arrayInfo = array();
 	$arrayMovies=array();
-	//if($loggedIn==false){
-    //    childrenSQL();
-    //}
-    //else{
-    //    loggedInSQL($userGenreID);
-    //}  
     ?>
 
     <div class="mySlides3 fade">
@@ -461,30 +455,9 @@
 </div>
 
 <br>
-<!--<div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-</div>-->
 
-<!--Code for top trending below -->
-
-    <!--<div style="text-align:left">
-    <span class="dot" onclick="currentSlide2(1)"></span>
-    <span class="dot" onclick="currentSlide2(2)"></span>
-    <span class="dot" onclick="currentSlide2(3)"></span>
-    <span class="dot" onclick="currentSlide2(4)"></span>
-    </div>-->
-
-    <!--Code for the children's slideShow-->
-    <!--<div style="text-align:right">
-    <span class="dot" onclick="currentSlide3(1)"></span>
-    <span class="dot" onclick="currentSlide3(2)"></span>
-    <span class="dot" onclick="currentSlide3(3)"></span>
-    <span class="dot" onclick="currentSlide3(4)"></span>-->
     <script type="text/javascript" src="js/slideShow.js"></script>
-    <!--</div>-->
+
 
 <?php include ('include/footer.php') ?>
 </body>

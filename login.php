@@ -9,8 +9,7 @@
 	<body>
 		<div class="login">
 			<h1>Login</h1>
-			<!--Make a link to the PHP below-->
-			<!-- Give it the action -->
+			<!-- The Form posts to a seperate php -->
 			<form method="post">
 				<label for="username"></label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
