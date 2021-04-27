@@ -1,15 +1,22 @@
 
+//SlideIndex is the numerical postion of the item in the slide, which is set to 0
+//showSlides is a function that has to be called so that the user can see the slides
+//the slides and dots are shown either side of the slideshow so that the user is able to scroll through 
 var slideIndex = 0;
 showSlides();
 var slides, dots;
 
+//This function will scroll through the slides when the user clicks on the arrow on the right of the slideshow, for the top rated section it will scroll through the images
 function plusSlidesTopRated(position) {
     slideIndex += position;
+    //if the slideIndex goes beyond the length reset to 1, vice versa
     if (slideIndex > slides.length) {slideIndex = 1}
     else if(slideIndex < 1){slideIndex = slides.length}
+    //scroll through the slides in the for loop. displaying each image one at a time
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
+    //Scroll through each of the slides. The slide that its currently on will be highlighted as active.
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
         
@@ -17,30 +24,37 @@ function plusSlidesTopRated(position) {
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
 }
-
+//Shows the current slide
 function currentSlide(index) {
+    //if the slideIndex goes beyond the length reset to 1, vice versa
     if (index > slides.length) {index = 1}
     else if(index < 1){index = slides.length}
     for (i = 0; i < slides.length; i++) {
+        //scroll through the slides in the for loop. displaying each image one at a time
         slides[i].style.display = "none";  
     }
     for (i = 0; i < dots.length; i++) {
+        //Scroll through each of the slides. The slide that its currently on will be highlighted as active.
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[index-1].style.display = "block";  
     dots[index-1].className += " active";
 }
 
+//shows the slide for the user to see
 function showSlides() {
     var i;
-    slides = document.getElementsByClassName("mySlides");
-    dots = document.getElementsByClassName("dot");
+    slides = document.getElementsByClassName("mySlides"); //displays the slides from the HTML file by calling the class name
+    dots = document.getElementsByClassName("dot"); //displays the dots so the user can see each of the slides one at a time
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
+    //increments the count for the slide so each time a new slide is shown
     slideIndex++;
     console.log(slideIndex);
-    if (slideIndex > slides.length) {slideIndex = 1}    
+    //if the user goes beyond the length of the slide then it should take the user back to the first slide
+    if (slideIndex > slides.length) {slideIndex = 1} 
+    //shows which of the slides is currently active on the dots.
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
